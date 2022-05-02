@@ -1,0 +1,16 @@
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\bin\Debug\Brylev.exe.config
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\bin\Debug\Brylev.exe
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\bin\Debug\Brylev.pdb
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.csproj.AssemblyReference.cache
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.csproj.SuggestedBindingRedirects.cache
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\MainWindow\MainWindow.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\App.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev_MarkupCompile.cache
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev_MarkupCompile.lref
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\MainWindow\MainWindow.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.g.resources
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.Properties.Resources.resources
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.csproj.GenerateResource.cache
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.csproj.CoreCompileInputs.cache
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.exe
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.pdb
