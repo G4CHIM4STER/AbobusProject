@@ -23,5 +23,22 @@ namespace Brylev.MainWindow
 		{
 			InitializeComponent();
 		}
+
+		private void AuthorizeButton_Click(object sender, RoutedEventArgs e)
+		{
+			AfterAuthorization.AfterAuthorization afterAuthorization = new AfterAuthorization.AfterAuthorization();
+
+			this.Hide();
+			afterAuthorization.Show();
+
+			afterAuthorization.Closing += AfterAuthorization_Closed;
+		}
+
+		private void AfterAuthorization_Closed(object sender, EventArgs e)
+		{
+			base.OnClosed(e);
+
+			Application.Current.Shutdown();
+		}
 	}
 }

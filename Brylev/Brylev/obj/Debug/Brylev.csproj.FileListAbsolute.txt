@@ -14,3 +14,9 @@ C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Бр�
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.csproj.CoreCompileInputs.cache
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.exe
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.pdb
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\AfterAuthorization\AfterAuthorization.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Requests\AllRequests.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\AfterAuthorization\AfterAuthorization.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Requests\AllRequests.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Requests\Request.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Requests\Request.baml
