@@ -38,26 +38,22 @@ namespace Brylev.AfterAuthorization
 			}
 		}
 
-		//private void RequestsButtonClick(object sender, RoutedEventArgs e)
-		//{
-		//	Requests.AllRequests allRequestsWindow = new Requests.AllRequests();
-		//	object requestContent = allRequestsWindow.Content;
-		//	allRequestsWindow.Content = null;
-
-		//	this.ChildWindow.Children.Add(requestContent as UIElement);
-
-		//	OpenChildWindow(this.RequestsButton);
-		//}
-
 		private void OpenChildWindow(Window window, string Data = null)
 		{
+			this.ChildWindow.Children.Clear();
+
 			object requestContent = window.Content;
 			window.Content = null;
 
 			this.ChildWindow.Children.Add(requestContent as UIElement);
 		}
 
+		public void OpenNewWindow(object sender, RoutedEventArgs e)
+		{
+			AfterAuthorization_OpenWindow(sender, e);
+		}
+
 		public delegate void OpenWindowHandler(object sender, RoutedEventArgs e);
-		public static event OpenWindowHandler OpenWindow;
+		public event OpenWindowHandler OpenWindow;
 	}
 }
