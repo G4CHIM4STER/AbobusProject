@@ -26,13 +26,12 @@
 			<ColumnDefinition Width="95*"/>
 		</Grid.ColumnDefinitions>
 
-		<Button x:Name="RequestsButton" Content="Заявки" Grid.Column="0" Grid.Row="1" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="AfterAuthorization_OpenWindow"/>
-
-		<Button Content="Клиенты" Grid.Column="0" Grid.Row="2" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold"/>
-		<Button Content="Договоры" Grid.Column="0" Grid.Row="3" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold"/>
-		<Button Content="Сотрудники" Grid.Column="0" Grid.Row="4" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold"/>
-		<Button Content="Обрудование" Grid.Column="0" Grid.Row="5" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold"/>
-		<Button Content="Отчеты" Grid.Column="0" Grid.Row="6" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold"/>
+		<Button x:Name="RequestsButton" Content="Заявки" Grid.Column="0" Grid.Row="1" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
+		<Button x:Name="ClientsButton" Content="Клиенты" Grid.Column="0" Grid.Row="2" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
+		<Button x:Name="ContractsButton" Content="Договоры" Grid.Column="0" Grid.Row="3" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
+		<Button x:Name="EmployeesButton" Content="Сотрудники" Grid.Column="0" Grid.Row="4" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
+		<Button x:Name="EquipmentButton" Content="Обрудование" Grid.Column="0" Grid.Row="5" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
+		<Button x:Name="ReportsButton" Content="Отчеты" Grid.Column="0" Grid.Row="6" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
 
 		<Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="3" Background="LightCyan">
 			<Grid x:Name="ChildWindow" Margin="10,10,10,10">
@@ -48,6 +47,6 @@
 
 		<Grid Background="#FFDAE8FC" Grid.Column="0" Grid.Row="7"/>
 
-		<Button Grid.Column="4" Grid.Row="0" Content="Выйти" Background="#FFFAD7AC" FontSize="20" FontWeight="Bold"/>
+		<Button Grid.Column="4" Grid.Row="0" Content="Выйти" Background="#FFFAD7AC" FontSize="20" FontWeight="Bold" Click="Exit"/>
 	</Grid>
 </Window>
