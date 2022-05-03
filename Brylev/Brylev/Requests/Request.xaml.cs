@@ -23,5 +23,22 @@ namespace Brylev.Requests
 		{
 			InitializeComponent();
 		}
+
+		private void ReturnButton_Click(object sender, RoutedEventArgs e)
+		{
+			OpenAllRequests();
+		}
+
+		private void SaveButton_Click(object sender, RoutedEventArgs e)
+		{
+			OpenAllRequests();
+
+			//TO DO
+		}
+
+		private void OpenAllRequests()
+		{
+			App.afterAuthorization.OpenNewWindow(this, null, typeof(Requests.AllRequests));
+		}
 	}
 }

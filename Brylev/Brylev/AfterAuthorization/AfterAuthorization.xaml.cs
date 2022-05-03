@@ -20,40 +20,155 @@ namespace Brylev.AfterAuthorization
 	/// </summary>
 	public partial class AfterAuthorization : Window
 	{
+		//Буфер сохранения последней нажатой кнопки для цветного выделения
+		Button LastPressedButton;
+
+		public delegate void OpenWindowHandler(object sender, RoutedEventArgs e, Type T);
+		public event OpenWindowHandler OpenWindow;
+
 		public AfterAuthorization()
 		{
 			InitializeComponent();
 			OpenWindow += AfterAuthorization_OpenWindow;
+			App.afterAuthorization = this;
 		}
 
-		private void AfterAuthorization_OpenWindow(object sender, RoutedEventArgs e)
+		/// <summary>
+		/// Обработчик нажатий на кнопки главной формы
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void ButtonClick(object sender, RoutedEventArgs e)
 		{
-			if (sender.Equals(this.RequestsButton))
+			AfterAuthorization_OpenWindow(sender, e, null);
+		}
+
+		/// <summary>
+		/// Закрытие приложения
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		private void Exit(object sender, RoutedEventArgs e)
+		{
+			Application.Current.Shutdown();
+		}
+
+		/// <summary>
+		/// Обработчик открытия модальных окон внутри главного окна
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		/// <param name="T">Тип класса окна</param>
+		private void AfterAuthorization_OpenWindow(object sender, RoutedEventArgs e, Type T)
+		{
+			ResetChildWindows();
+
+			if (T == null)
 			{
-				OpenChildWindow(new Requests.AllRequests());
+				ChangeButtonColorStates(sender);
+
+				if (sender.Equals(this.ClientsButton))
+				{
+					OpenNewChildWindow(typeof(Clients.AllClients));
+				}
+				else if (sender.Equals(this.ContractsButton))
+				{
+					OpenNewChildWindow(typeof(Contracts.AllContracts));
+				}
+				else if (sender.Equals(this.EmployeesButton))
+				{
+					OpenNewChildWindow(typeof(Employees.AllEmployees));
+				}
+				else if (sender.Equals(this.EquipmentButton))
+				{
+					OpenNewChildWindow(typeof(Equipment.AllEquipment));
+				}
+				else if (sender.Equals(this.ReportsButton))
+				{
+					OpenNewChildWindow(typeof(Reports.AllReports));
+				}
+				else if (sender.Equals(this.RequestsButton))
+				{
+					OpenNewChildWindow(typeof(Requests.AllRequests));
+				}
 			}
-			else if(sender.GetType() == typeof(Requests.AllRequests))
+			else
 			{
-				OpenChildWindow(new Requests.Request());
+				OpenNewChildWindow(T);
 			}
 		}
 
-		private void OpenChildWindow(Window window, string Data = null)
+		/// <summary>
+		/// Метод открытия нового окна внутри главной формы
+		/// </summary>
+		/// <param name="windowType">Тип окна</param>
+		private void OpenNewChildWindow(Type windowType)
 		{
-			this.ChildWindow.Children.Clear();
-
+			Window window = (Window)Activator.CreateInstance(windowType);
 			object requestContent = window.Content;
 			window.Content = null;
 
 			this.ChildWindow.Children.Add(requestContent as UIElement);
 		}
 
-		public void OpenNewWindow(object sender, RoutedEventArgs e)
+		//private bool OpenExistingWindow(Window window)
+		//{
+		//	foreach (var child in this.ChildWindow.Children)
+		//	{
+		//		if (child.GetType().Equals(window))
+		//		{
+
+		//		}
+		//	}
+		//}
+
+		/// <summary>
+		/// Метод очищения внутренних окон
+		/// </summary>
+		private void ResetChildWindows()
 		{
-			AfterAuthorization_OpenWindow(sender, e);
+			this.ChildWindow.Children.Clear();
 		}
 
-		public delegate void OpenWindowHandler(object sender, RoutedEventArgs e);
-		public event OpenWindowHandler OpenWindow;
+		//public void CloseWindow(Type T)
+		//{
+		//	if(this.ChildWindow.Children.Count != 0)
+		//	{
+		//		foreach (var child in ChildWindow.Children)
+		//		{
+		//			if (child.GetType().Equals(T))
+		//			{
+		//				ChildWindow.Children.Remove(child as UIElement);
+		//			}
+		//		}
+		//	}
+		//}
+
+		/// <summary>
+		/// Обработчик открытия конкретного окна для реализации внешними объектами
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		/// <param name="T">Тип окна</param>
+		public void OpenNewWindow(object sender, RoutedEventArgs e, Type T)
+		{
+			AfterAuthorization_OpenWindow(sender, e, T);
+		}
+
+		/// <summary>
+		/// Изменение цвета кнопок
+		/// </summary>
+		/// <param name="button">Последняя нажатая кнопка</param>
+		private void ChangeButtonColorStates(object button)
+		{
+			if (LastPressedButton != null)
+			{
+				Utilities.Utils.ResetButtonColor(LastPressedButton);
+			}
+
+			Button _button = button as Button;
+			Utilities.Utils.HighlightButton(_button);
+			LastPressedButton = _button;
+		}
 	}
 }

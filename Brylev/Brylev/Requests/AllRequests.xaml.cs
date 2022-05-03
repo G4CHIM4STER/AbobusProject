@@ -19,32 +19,24 @@ namespace Brylev.Requests
 	/// </summary>
 	public partial class AllRequests : Window
 	{
-		static AfterAuthorization.AfterAuthorization AfterAuthorization;
+		//AfterAuthorization.AfterAuthorization afterAuthorization;
 
 		public AllRequests()
 		{
 			InitializeComponent();
-			//AfterAuthorization.AfterAuthorization.OpenWindow += InsertButton_Click;
-			var windows = Application.Current.Windows;
+			//afterAuthorization = App.afterAuthorization;
 
-			if (windows != null)
-			{
-				foreach (var window in windows)
-				{
-					if (window.GetType().Equals(typeof(AfterAuthorization.AfterAuthorization)))
-					{
-						AfterAuthorization = (AfterAuthorization.AfterAuthorization)window;
-						//afterAuthorization.Close();
-						AfterAuthorization.OpenWindow += InsertButton_Click;
-						break;
-					}
-				}
-			}
+			//FindParentWindow();
 		}
 
 		private void InsertButton_Click(object sender, RoutedEventArgs e)
 		{
-			AfterAuthorization.OpenNewWindow(this, e);
+			App.afterAuthorization.OpenNewWindow(this, e, typeof(Requests.Request));
 		}
+
+		//private void FindParentWindow()
+		//{
+		//	afterAuthorization = (AfterAuthorization.AfterAuthorization)Utilities.Utils.GetWindowInstance(typeof(AfterAuthorization.AfterAuthorization));
+		//}
 	}
 }

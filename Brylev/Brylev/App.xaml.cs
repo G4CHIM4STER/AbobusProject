@@ -13,6 +13,8 @@ namespace Brylev
 	/// </summary>
 	public partial class App : Application
 	{
+		public static AfterAuthorization.AfterAuthorization afterAuthorization;
+
 		public App()
 		{
 		}
