@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Brylev.Requests"
         mc:Ignorable="d"
         Title="Request" Height="450" Width="800">
-	<Grid Background="White">
+	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="8*"/>
 			<ColumnDefinition Width="9*"/>
@@ -26,7 +26,7 @@
 		</Grid.RowDefinitions>
 
 		<Grid>
-			<Button x:Name="ReturnButton" Content="Назад" Click="ReturnButton_Click"></Button>
+			<Button x:Name="ReturnButton" Content="Назад"></Button>
 		</Grid>
 
 		<!--#region Тема заявки-->
@@ -156,7 +156,7 @@
 				<RowDefinition/>
 				<RowDefinition/>
 			</Grid.RowDefinitions>
-			<Button x:Name="SaveButton" Grid.Row="1" Content="Сохранить" Click="SaveButton_Click"/>
+			<Button x:Name="SaveButton" Grid.Row="1" Content="Сохранить"/>
 		</Grid>
 
 	</Grid>

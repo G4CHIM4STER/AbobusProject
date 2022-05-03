@@ -77,43 +77,12 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Clients\AllClients.xaml.cs">
-      <DependentUpon>AllClients.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Clients\Client.xaml.cs">
-      <DependentUpon>Client.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Contracts\AllContracts.xaml.cs">
-      <DependentUpon>AllContracts.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Contracts\Contract.xaml.cs">
-      <DependentUpon>Contract.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Employees\AllEmployees.xaml.cs">
-      <DependentUpon>AllEmployees.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Employees\Employee.xaml.cs">
-      <DependentUpon>Employee.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Equipment\AllEquipment.xaml.cs">
-      <DependentUpon>AllEquipment.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Equipment\Equipment.xaml.cs">
-      <DependentUpon>Equipment.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\AllReports.xaml.cs">
-      <DependentUpon>AllReports.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Report.xaml.cs">
-      <DependentUpon>Report.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Requests\AllRequests.xaml.cs">
       <DependentUpon>AllRequests.xaml</DependentUpon>
     </Compile>
     <Compile Include="Requests\Request.xaml.cs">
       <DependentUpon>Request.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MainWindow\MainWindow.xaml.cs">
@@ -149,47 +118,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Clients\AllClients.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Clients\Client.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Contracts\AllContracts.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Contracts\Contract.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Employees\AllEmployees.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Employees\Employee.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Equipment\AllEquipment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Equipment\Equipment.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow\MainWindow.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Reports\AllReports.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Reports\Report.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -214,7 +143,13 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Clients\" />
+    <Folder Include="Contracts\" />
+    <Folder Include="Employees\" />
+    <Folder Include="Equipment\" />
+    <Folder Include="Reports\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Image1.png" />
   </ItemGroup>
