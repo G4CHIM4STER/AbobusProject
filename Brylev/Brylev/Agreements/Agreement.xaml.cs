@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Brylev.Contracts
+namespace Brylev.Agreements
 {
 	/// <summary>
-	/// Логика взаимодействия для AllContracts.xaml
+	/// Логика взаимодействия для Contract.xaml
 	/// </summary>
-	public partial class AllContracts : Window
+	public partial class Agreement : Window
 	{
-		public AllContracts()
+		public Agreement()
 		{
 			InitializeComponent();
 		}

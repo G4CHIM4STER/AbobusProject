@@ -1,11 +1,11 @@
-﻿<Window x:Class="Brylev.Contracts.AllContracts"
+﻿<Window x:Class="Brylev.Applications.AllApplications"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Brylev.Contracts"
+        xmlns:local="clr-namespace:Brylev.Applications"
         mc:Ignorable="d"
-        Title="AllContracts">
+        Title="AllApplications">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="270*"/>
@@ -20,12 +20,12 @@
 		</Grid.RowDefinitions>
 
 		<Button x:Name="AlterButton" Content="Изменить" Background="#FFFAD7AC" Grid.Column="2" FontSize="20" FontWeight="Bold" BorderBrush="White"/>
-		<Button x:Name="InsertButton" Content="Добавить" Background="#FFFAD7AC" Grid.Column="3" FontSize="20" FontWeight="Bold" BorderBrush="White"/>
+		<Button x:Name="InsertButton" Content="Добавить" Background="#FFFAD7AC" Grid.Column="3" FontSize="20" FontWeight="Bold" BorderBrush="White" Click="InsertButton_Click"/>
 
 		<Grid Grid.Column="0" Background="White">
-			<TextBox Text="Список договоров" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="White"/>
+			<TextBox Text="Заявки на обслуживание" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="White"/>
 		</Grid>
 
-		<DataGrid x:Name="RequestsDataGrid" BorderBrush="White" Grid.Row="1" Grid.ColumnSpan="5"/>
+		<DataGrid x:Name="ApplicationsDataGrid" BorderBrush="White" Grid.Row="1" Grid.ColumnSpan="5"/>
 	</Grid>
 </Window>

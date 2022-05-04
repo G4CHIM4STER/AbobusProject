@@ -38,7 +38,7 @@ namespace Brylev.MainWindow
 		{
 			base.OnClosed(e);
 
-			Application.Current.Shutdown();
+			System.Windows.Application.Current.Shutdown();
 		}
 	}
 }

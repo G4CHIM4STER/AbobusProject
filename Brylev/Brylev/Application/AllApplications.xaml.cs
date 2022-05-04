@@ -12,31 +12,26 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Brylev.Requests
+namespace Brylev.Applications
 {
 	/// <summary>
 	/// Логика взаимодействия для AllRequests.xaml
 	/// </summary>
-	public partial class AllRequests : Window
+	public partial class AllApplications : Window
 	{
-		//AfterAuthorization.AfterAuthorization afterAuthorization;
-
-		public AllRequests()
+		public AllApplications()
 		{
 			InitializeComponent();
-			//afterAuthorization = App.afterAuthorization;
 
-			//FindParentWindow();
+			//string command = String.Format(Utilities.Utils.select, "Application");
+			string table = "Application";
+
+			Utilities.Utils.FillDataGrid(this.ApplicationsDataGrid, table);
 		}
 
 		private void InsertButton_Click(object sender, RoutedEventArgs e)
 		{
-			App.afterAuthorization.OpenNewWindow(this, e, typeof(Requests.Request));
+			App.afterAuthorization.OpenNewWindow(this, e, typeof(Applications.Application));
 		}
-
-		//private void FindParentWindow()
-		//{
-		//	afterAuthorization = (AfterAuthorization.AfterAuthorization)Utilities.Utils.GetWindowInstance(typeof(AfterAuthorization.AfterAuthorization));
-		//}
 	}
 }

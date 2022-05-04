@@ -83,11 +83,11 @@
     <Compile Include="Clients\Client.xaml.cs">
       <DependentUpon>Client.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contracts\AllContracts.xaml.cs">
-      <DependentUpon>AllContracts.xaml</DependentUpon>
+    <Compile Include="Agreements\AllAgreements.xaml.cs">
+      <DependentUpon>AllAgreements.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Contracts\Contract.xaml.cs">
-      <DependentUpon>Contract.xaml</DependentUpon>
+    <Compile Include="Agreements\Agreement.xaml.cs">
+      <DependentUpon>Agreement.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employees\AllEmployees.xaml.cs">
       <DependentUpon>AllEmployees.xaml</DependentUpon>
@@ -101,17 +101,17 @@
     <Compile Include="Equipment\Equipment.xaml.cs">
       <DependentUpon>Equipment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reports\AllReports.xaml.cs">
-      <DependentUpon>AllReports.xaml</DependentUpon>
+    <Compile Include="Docs\AllDocs.xaml.cs">
+      <DependentUpon>AllDocs.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Reports\Report.xaml.cs">
-      <DependentUpon>Report.xaml</DependentUpon>
+    <Compile Include="Docs\Doc.xaml.cs">
+      <DependentUpon>Doc.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Requests\AllRequests.xaml.cs">
-      <DependentUpon>AllRequests.xaml</DependentUpon>
+    <Compile Include="Application\AllApplications.xaml.cs">
+      <DependentUpon>AllApplications.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Requests\Request.xaml.cs">
-      <DependentUpon>Request.xaml</DependentUpon>
+    <Compile Include="Application\Application.xaml.cs">
+      <DependentUpon>Application.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
@@ -157,11 +157,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Contracts\AllContracts.xaml">
+    <Page Include="Agreements\AllAgreements.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Contracts\Contract.xaml">
+    <Page Include="Agreements\Agreement.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -185,19 +185,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Reports\AllReports.xaml">
+    <Page Include="Docs\AllDocs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Reports\Report.xaml">
+    <Page Include="Docs\Doc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Requests\AllRequests.xaml">
+    <Page Include="Application\AllApplications.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Requests\Request.xaml">
+    <Page Include="Application\Application.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

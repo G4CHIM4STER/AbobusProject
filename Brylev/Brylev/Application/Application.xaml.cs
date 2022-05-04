@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Brylev.Requests
+namespace Brylev.Applications
 {
 	/// <summary>
 	/// Логика взаимодействия для Request.xaml
 	/// </summary>
-	public partial class Request : Window
+	public partial class Application : Window
 	{
-		public Request()
+		public Application()
 		{
 			InitializeComponent();
 		}
@@ -38,7 +38,7 @@ namespace Brylev.Requests
 
 		private void OpenAllRequests()
 		{
-			App.afterAuthorization.OpenNewWindow(this, null, typeof(Requests.AllRequests));
+			App.afterAuthorization.OpenNewWindow(this, null, typeof(Applications.AllApplications));
 		}
 	}
 }

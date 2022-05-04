@@ -22,6 +22,12 @@ namespace Brylev.Equipment
 		public AllEquipment()
 		{
 			InitializeComponent();
+
+			//string command = String.Format(Utilities.Utils.select, "Equipment");
+
+			string table = "Equipment";
+
+			Utilities.Utils.FillDataGrid(this.EquipmentDataGrid, table);
 		}
 	}
 }

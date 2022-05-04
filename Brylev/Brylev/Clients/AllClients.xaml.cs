@@ -25,25 +25,10 @@ namespace Brylev.Clients
 		{
 			InitializeComponent();
 
-			using(SqlConnection connection = new SqlConnection(App.connectionParams))
-			{
-				connection.Open();
+			//string command = String.Format(Utilities.Utils.select, "Client");
+			string table = "Client";
 
-				string command = String.Format(Utilities.Utils.select, "Client");
-
-				SqlDataAdapter sqlData = new SqlDataAdapter(command, connection);
-
-				DataTable dataTable = new DataTable();
-				sqlData.Fill(dataTable);
-
-				//ClientsDataGrid.DataContext = dataTable;
-				//Utilities.Utils.FitDataGridToContent(ClientsDataGrid);
-
-				ClientsDataGrid.ItemsSource = dataTable.AsDataView();
-
-			}
-
-			//ClientsDataGrid.DataSource = dataTable;
+			Utilities.Utils.FillDataGrid(this.ClientsDataGrid, table);
 		}
 	}
 }

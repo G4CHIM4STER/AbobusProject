@@ -50,7 +50,7 @@ namespace Brylev.AfterAuthorization
 		/// <param name="e"></param>
 		private void Exit(object sender, RoutedEventArgs e)
 		{
-			Application.Current.Shutdown();
+			System.Windows.Application.Current.Shutdown();
 		}
 
 		/// <summary>
@@ -73,7 +73,7 @@ namespace Brylev.AfterAuthorization
 				}
 				else if (sender.Equals(this.ContractsButton))
 				{
-					OpenNewChildWindow(typeof(Contracts.AllContracts));
+					OpenNewChildWindow(typeof(Agreements.AllAgreements));
 				}
 				else if (sender.Equals(this.EmployeesButton))
 				{
@@ -89,7 +89,7 @@ namespace Brylev.AfterAuthorization
 				}
 				else if (sender.Equals(this.RequestsButton))
 				{
-					OpenNewChildWindow(typeof(Requests.AllRequests));
+					OpenNewChildWindow(typeof(Applications.AllApplications));
 				}
 			}
 			else

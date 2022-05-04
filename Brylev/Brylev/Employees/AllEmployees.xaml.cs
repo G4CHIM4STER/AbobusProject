@@ -22,6 +22,12 @@ namespace Brylev.Employees
 		public AllEmployees()
 		{
 			InitializeComponent();
+
+			//string command = String.Format(Utilities.Utils.select, "Employee");
+
+			string table = "Employee";
+
+			Utilities.Utils.FillDataGrid(this.EmployeesDataGrid, table);
 		}
 	}
 }
