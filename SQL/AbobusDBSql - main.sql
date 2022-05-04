@@ -1,16 +1,17 @@
-CREATE TABLE AbobusDB.dbo.ApplicationType ( 
+USE master;
+GO
+
+DROP DATABASE AbobusDB;
+GO
+
+CREATE DATABASE AbobusDB;
+GO
+
+CREATE TABLE AbobusDB.dbo.ApplicationTypes ( 
 	id_applicationtype   int    IDENTITY(1,1)  NOT NULL,
 	name                 varchar(50)      NOT NULL,
 	description          varchar(200)      NULL,
 	CONSTRAINT pk_ApplicationType PRIMARY KEY  ( id_applicationtype ) 
- );
-GO
-
-CREATE TABLE AbobusDB.dbo.DocTemplate ( 
-	id_doctemplate       int    IDENTITY(1,1)  NOT NULL,
-	name                 varchar(100)      NOT NULL,
-	description          varchar(200)      NULL,
-	CONSTRAINT pk_DocTemlate PRIMARY KEY  ( id_doctemplate ) 
  );
 GO
 
@@ -23,28 +24,28 @@ CREATE TABLE AbobusDB.dbo.Docs (
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Position ( 
+CREATE TABLE AbobusDB.dbo.Positions ( 
 	id_position          int    IDENTITY(1,1)  NOT NULL,
 	name                 varchar(100)      NOT NULL,
 	CONSTRAINT pk_Position PRIMARY KEY  ( id_position ) 
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Region ( 
+CREATE TABLE AbobusDB.dbo.Regions ( 
 	id_region            int    IDENTITY(1,1)  NOT NULL,
 	name                 varchar(100)      NOT NULL,
 	CONSTRAINT pk_Region PRIMARY KEY  ( id_region ) 
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Role ( 
+CREATE TABLE AbobusDB.dbo.Roles ( 
 	id_role              int    IDENTITY(1,1)  NOT NULL,
 	name                 varchar(100)      NOT NULL,
 	CONSTRAINT pk_Role PRIMARY KEY  ( id_role ) 
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Room ( 
+CREATE TABLE AbobusDB.dbo.Rooms ( 
 	id_room              int    IDENTITY(1,1)  NOT NULL,
 	appointment          varchar(200)      NOT NULL,
 	floor                int      NULL,
@@ -53,18 +54,14 @@ CREATE TABLE AbobusDB.dbo.Room (
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.[Status] ( 
+CREATE TABLE AbobusDB.dbo.Statuses ( 
 	id_status            int    IDENTITY(1,1)  NOT NULL,
 	name                 varchar(100)      NOT NULL,
 	CONSTRAINT pk_St PRIMARY KEY  ( id_status ) 
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Tbl ( 
- );
-GO
-
-CREATE TABLE AbobusDB.dbo.Client ( 
+CREATE TABLE AbobusDB.dbo.Clients ( 
 	id_client            int    IDENTITY(1,1)  NOT NULL,
 	id_room              int      NOT NULL,
 	name                 varchar(100)      NOT NULL,
@@ -74,7 +71,7 @@ CREATE TABLE AbobusDB.dbo.Client (
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Employee ( 
+CREATE TABLE AbobusDB.dbo.Employees ( 
 	id_employee          int    IDENTITY(1,1)  NOT NULL,
 	id_role              int      NOT NULL,
 	id_region            int      NOT NULL,
@@ -86,7 +83,7 @@ CREATE TABLE AbobusDB.dbo.Employee (
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Agreement ( 
+CREATE TABLE AbobusDB.dbo.Agreements ( 
 	id_agreement         int    IDENTITY(1,1)  NOT NULL,
 	id_docs              int      NOT NULL,
 	id_client            int      NOT NULL,
@@ -97,7 +94,7 @@ CREATE TABLE AbobusDB.dbo.Agreement (
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Equipment ( 
+CREATE TABLE AbobusDB.dbo.Equipments ( 
 	id_equip             int    IDENTITY(1,1)  NOT NULL,
 	id_client            int      NOT NULL,
 	id_agreement         int      NOT NULL,
@@ -109,7 +106,7 @@ CREATE TABLE AbobusDB.dbo.Equipment (
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Application ( 
+CREATE TABLE AbobusDB.dbo.Applications ( 
 	id_application       int    IDENTITY(1,1)  NOT NULL,
 	id_room              int      NOT NULL,
 	id_status            int      NOT NULL,
@@ -124,54 +121,47 @@ CREATE TABLE AbobusDB.dbo.Application (
  );
 GO
 
-ALTER TABLE AbobusDB.dbo.Agreement ADD CONSTRAINT fk_agreement_client FOREIGN KEY ( id_client ) REFERENCES AbobusDB.dbo.Client( id_client ) ON DELETE SET NULL ON UPDATE SET NULL;
+ALTER TABLE AbobusDB.dbo.Agreements ADD CONSTRAINT fk_agreement_client FOREIGN KEY ( id_client ) REFERENCES AbobusDB.dbo.Clients( id_client );
 GO
 
-ALTER TABLE AbobusDB.dbo.Agreement ADD CONSTRAINT fk_Agreement_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
+ALTER TABLE AbobusDB.dbo.Agreements ADD CONSTRAINT fk_Agreement_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
 GO
 
-ALTER TABLE AbobusDB.dbo.Application ADD CONSTRAINT fk_Application_Room FOREIGN KEY ( id_room ) REFERENCES AbobusDB.dbo.Room( id_room );
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Room FOREIGN KEY ( id_room ) REFERENCES AbobusDB.dbo.Rooms( id_room );
 GO
 
-ALTER TABLE AbobusDB.dbo.Application ADD CONSTRAINT fk_Application_Status FOREIGN KEY ( id_status ) REFERENCES AbobusDB.dbo.[Status]( id_status );
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Status FOREIGN KEY ( id_status ) REFERENCES AbobusDB.dbo.Statuses( id_status );
 GO
 
-ALTER TABLE AbobusDB.dbo.Application ADD CONSTRAINT fk_Application_ApplicationType FOREIGN KEY ( id_aplicationtype ) REFERENCES AbobusDB.dbo.ApplicationType( id_applicationtype );
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_ApplicationType FOREIGN KEY ( id_aplicationtype ) REFERENCES AbobusDB.dbo.ApplicationTypes( id_applicationtype );
 GO
 
-ALTER TABLE AbobusDB.dbo.Application ADD CONSTRAINT fk_Application_Equipment FOREIGN KEY ( id_equip ) REFERENCES AbobusDB.dbo.Equipment( id_equip );
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Equipment FOREIGN KEY ( id_equip ) REFERENCES AbobusDB.dbo.Equipments( id_equip );
 GO
 
-ALTER TABLE AbobusDB.dbo.Application ADD CONSTRAINT fk_Application_Agreement FOREIGN KEY ( id_agreement ) REFERENCES AbobusDB.dbo.Agreement( id_agreement );
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Agreement FOREIGN KEY ( id_agreement ) REFERENCES AbobusDB.dbo.Agreements( id_agreement );
 GO
 
-ALTER TABLE AbobusDB.dbo.Application ADD CONSTRAINT fk_Application_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
 GO
 
-ALTER TABLE AbobusDB.dbo.Application ADD CONSTRAINT fk_Application_Employee FOREIGN KEY ( id_employee ) REFERENCES AbobusDB.dbo.Employee( id_employee );
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Employee FOREIGN KEY ( id_employee ) REFERENCES AbobusDB.dbo.Employees( id_employee );
 GO
 
-ALTER TABLE AbobusDB.dbo.Client ADD CONSTRAINT fk_Client_Room FOREIGN KEY ( id_room ) REFERENCES AbobusDB.dbo.Room( id_room );
+ALTER TABLE AbobusDB.dbo.Clients ADD CONSTRAINT fk_Client_Room FOREIGN KEY ( id_room ) REFERENCES AbobusDB.dbo.Rooms( id_room );
 GO
 
-ALTER TABLE AbobusDB.dbo.Docs ADD CONSTRAINT fk_Docs_DocTemplate FOREIGN KEY ( id_doctemplate ) REFERENCES AbobusDB.dbo.DocTemplate( id_doctemplate );
+ALTER TABLE AbobusDB.dbo.Employees ADD CONSTRAINT fk_Employee_Role FOREIGN KEY ( id_role ) REFERENCES AbobusDB.dbo.Roles( id_role );
 GO
 
-ALTER TABLE AbobusDB.dbo.Employee ADD CONSTRAINT fk_Employee_Role FOREIGN KEY ( id_role ) REFERENCES AbobusDB.dbo.Role( id_role );
+ALTER TABLE AbobusDB.dbo.Employees ADD CONSTRAINT fk_Employee_Region FOREIGN KEY ( id_region ) REFERENCES AbobusDB.dbo.Regions( id_region );
 GO
 
-ALTER TABLE AbobusDB.dbo.Employee ADD CONSTRAINT fk_Employee_Region FOREIGN KEY ( id_region ) REFERENCES AbobusDB.dbo.Region( id_region );
+ALTER TABLE AbobusDB.dbo.Employees ADD CONSTRAINT fk_Employee_Position FOREIGN KEY ( id_position ) REFERENCES AbobusDB.dbo.Positions( id_position );
 GO
 
-ALTER TABLE AbobusDB.dbo.Employee ADD CONSTRAINT fk_Employee_Position FOREIGN KEY ( id_position ) REFERENCES AbobusDB.dbo.Position( id_position );
+ALTER TABLE AbobusDB.dbo.Equipments ADD CONSTRAINT fk_Equipment_Client FOREIGN KEY ( id_client ) REFERENCES AbobusDB.dbo.Clients( id_client );
 GO
 
-ALTER TABLE AbobusDB.dbo.Equipment ADD CONSTRAINT fk_Equipment_Client FOREIGN KEY ( id_client ) REFERENCES AbobusDB.dbo.Client( id_client );
+ALTER TABLE AbobusDB.dbo.Equipments ADD CONSTRAINT fk_Equipment_Agreement FOREIGN KEY ( id_agreement ) REFERENCES AbobusDB.dbo.Agreements( id_agreement );
 GO
-
-ALTER TABLE AbobusDB.dbo.Equipment ADD CONSTRAINT fk_Equipment_Agreement FOREIGN KEY ( id_agreement ) REFERENCES AbobusDB.dbo.Agreement( id_agreement );
-GO
-
-exec [AbobusDB].sys.sp_addextendedproperty  @name=N'MS_Description', @value=N'Площадь' , @level0type=N'SCHEMA',@level0name=N'dbo', @level1type=N'TABLE',@level1name=N'Room', @level2type=N'COLUMN',@level2name=N'space';
-GO
-
