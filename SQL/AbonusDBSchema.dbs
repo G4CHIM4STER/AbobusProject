@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="AbobusDBSql - main.sql" id="Project-9fd" database="SqlServer" >
+	<schema name="dbo" catalogname="AbobusDB" >
+		<table name="ApplicationTypes" spec="" >
+			<column name="id_applicationtype" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="name" type="varchar" length="50" jt="12" mandatory="y" />
+			<column name="description" type="varchar" length="200" jt="12" />
+			<index name="pk_ApplicationType" unique="PRIMARY_KEY" >
+				<column name="id_applicationtype" />
+			</index>
+		</table>
+		<table name="Applications" spec="" >
+			<column name="id_application" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="id_room" type="int" jt="4" mandatory="y" />
+			<column name="id_status" type="int" jt="4" mandatory="y" />
+			<column name="id_aplicationtype" type="int" jt="4" mandatory="y" />
+			<column name="id_equip" type="int" jt="4" mandatory="y" />
+			<column name="id_contract" prior="id_agreement" type="int" jt="4" mandatory="y" />
+			<column name="id_docs" type="int" jt="4" mandatory="y" />
+			<column name="id_employee" type="int" jt="4" mandatory="y" />
+			<column name="date" type="datetime" jt="92" />
+			<column name="description" type="varchar" length="200" jt="12" />
+			<index name="pk_Application" unique="PRIMARY_KEY" >
+				<column name="id_application" />
+			</index>
+			<fk name="fk_Application_Room" to_schema="AbobusDB.dbo" to_table="Rooms" options="" >
+				<fk_column name="id_room" pk="id_room" />
+			</fk>
+			<fk name="fk_Application_Status" to_schema="AbobusDB.dbo" to_table="Statuses" options="" >
+				<fk_column name="id_status" pk="id_status" />
+			</fk>
+			<fk name="fk_Application_ApplicationType" to_schema="AbobusDB.dbo" to_table="ApplicationTypes" options="" >
+				<fk_column name="id_aplicationtype" pk="id_applicationtype" />
+			</fk>
+			<fk name="fk_Application_Equipment" to_schema="AbobusDB.dbo" to_table="Equipments" options="" >
+				<fk_column name="id_equip" pk="id_equip" />
+			</fk>
+			<fk name="fk_Application_Agreement" to_schema="AbobusDB.dbo" to_table="Contract" options="" >
+				<fk_column name="id_contract" pk="id_contract" />
+			</fk>
+			<fk name="fk_Application_Docs" to_schema="AbobusDB.dbo" to_table="Docs" options="" >
+				<fk_column name="id_docs" pk="id_docs" />
+			</fk>
+			<fk name="fk_Application_Employee" to_schema="AbobusDB.dbo" to_table="Employees" options="" >
+				<fk_column name="id_employee" pk="id_employee" />
+			</fk>
+		</table>
+		<table name="Clients" spec="" >
+			<column name="id_client" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="id_room" type="int" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="mail" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="ph_number" type="nvarchar" length="18" jt="12" mandatory="y" />
+			<index name="pk_Client" unique="PRIMARY_KEY" >
+				<column name="id_client" />
+			</index>
+			<fk name="fk_Client_Room" to_schema="AbobusDB.dbo" to_table="Rooms" options="" >
+				<fk_column name="id_room" pk="id_room" />
+			</fk>
+		</table>
+		<table name="Contract" prior="Agreements" spec="" >
+			<column name="id_contract" prior="id_agreement" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="id_docs" type="int" jt="4" mandatory="y" />
+			<column name="id_client" type="int" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="100" jt="12" />
+			<column name="time_start" type="time" length="7" jt="92" />
+			<column name="time_end" type="time" length="7" jt="92" />
+			<index name="pk_Agreement" unique="PRIMARY_KEY" >
+				<column name="id_contract" />
+			</index>
+			<fk name="fk_agreement_client" to_schema="AbobusDB.dbo" to_table="Clients" options="" >
+				<fk_column name="id_client" pk="id_client" />
+			</fk>
+			<fk name="fk_Agreement_Docs" to_schema="AbobusDB.dbo" to_table="Docs" options="" >
+				<fk_column name="id_docs" pk="id_docs" />
+			</fk>
+		</table>
+		<table name="Docs" spec="" >
+			<column name="id_docs" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="path" type="nvarchar(max)" jt="12" mandatory="y" />
+			<index name="pk_Docs" unique="PRIMARY_KEY" >
+				<column name="id_docs" />
+			</index>
+		</table>
+		<table name="Employees" spec="" >
+			<column name="id_employee" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="id_role" type="int" jt="4" mandatory="y" />
+			<column name="id_region" type="int" jt="4" mandatory="y" />
+			<column name="id_position" type="int" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="ph_number" type="nvarchar" length="18" jt="12" />
+			<column name="mail" type="varchar" length="100" jt="12" />
+			<index name="pk_Employee" unique="PRIMARY_KEY" >
+				<column name="id_employee" />
+			</index>
+			<fk name="fk_Employee_Role" to_schema="AbobusDB.dbo" to_table="Roles" options="" >
+				<fk_column name="id_role" pk="id_role" />
+			</fk>
+			<fk name="fk_Employee_Region" to_schema="AbobusDB.dbo" to_table="Regions" options="" >
+				<fk_column name="id_region" pk="id_region" />
+			</fk>
+			<fk name="fk_Employee_Position" to_schema="AbobusDB.dbo" to_table="Positions" options="" >
+				<fk_column name="id_position" pk="id_position" />
+			</fk>
+		</table>
+		<table name="Equipments" spec="" >
+			<column name="id_equip" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="id_contract" prior="id_agreement" type="int" jt="4" mandatory="y" />
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="type" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="serial_number" type="nvarchar" length="20" jt="12" mandatory="y" />
+			<column name="description" type="varchar" length="200" jt="12" />
+			<column name="cost" type="int" jt="4" mandatory="y" />
+			<index name="pk_Equipment" unique="PRIMARY_KEY" >
+				<column name="id_equip" />
+			</index>
+			<fk name="fk_Equipment_Agreement" to_schema="AbobusDB.dbo" to_table="Contract" options="" >
+				<fk_column name="id_contract" pk="id_contract" />
+			</fk>
+		</table>
+		<table name="Positions" spec="" >
+			<column name="id_position" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<index name="pk_Position" unique="PRIMARY_KEY" >
+				<column name="id_position" />
+			</index>
+		</table>
+		<table name="Regions" spec="" >
+			<column name="id_region" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<index name="pk_Region" unique="PRIMARY_KEY" >
+				<column name="id_region" />
+			</index>
+		</table>
+		<table name="Roles" spec="" >
+			<column name="id_role" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<index name="pk_Role" unique="PRIMARY_KEY" >
+				<column name="id_role" />
+			</index>
+		</table>
+		<table name="Rooms" spec="" >
+			<column name="id_room" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="appointment" type="varchar" length="200" jt="12" mandatory="y" />
+			<column name="floor" type="int" jt="4" />
+			<column name="space" type="int" jt="4" mandatory="y" />
+			<index name="pk_Room" unique="PRIMARY_KEY" >
+				<column name="id_room" />
+			</index>
+		</table>
+		<table name="Services" prior="Tbl_0" >
+			<column name="id_services" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY(1,1)]]></identity>
+			</column>
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<column name="description" type="varchar" length="200" jt="12" mandatory="y" />
+			<column name="cost" type="int" jt="4" mandatory="y" />
+			<index name="pk_Services" unique="PRIMARY_KEY" >
+				<column name="id_services" />
+			</index>
+		</table>
+		<table name="Statuses" spec="" >
+			<column name="id_status" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY (1, 1)]]></identity>
+			</column>
+			<column name="name" type="varchar" length="100" jt="12" mandatory="y" />
+			<index name="pk_St" unique="PRIMARY_KEY" >
+				<column name="id_status" />
+			</index>
+		</table>
+		<table name="Works" prior="Work" >
+			<column name="id_work" type="int" jt="4" mandatory="y" >
+				<identity><![CDATA[IDENTITY(1,1)]]></identity>
+			</column>
+			<column name="id_services" type="int" jt="4" mandatory="y" />
+			<column name="id_equipment" type="int" jt="4" mandatory="y" />
+			<column name="id_application" type="int" jt="4" mandatory="y" />
+			<column name="final_cost" type="int" jt="4" mandatory="y" />
+			<index name="pk_Works" unique="PRIMARY_KEY" >
+				<column name="id_work" />
+			</index>
+			<fk name="fk_Works_Services" to_schema="AbobusDB.dbo" to_table="Services" >
+				<fk_column name="id_services" pk="id_services" />
+			</fk>
+			<fk name="fk_Works_Equipments" to_schema="AbobusDB.dbo" to_table="Equipments" >
+				<fk_column name="id_equipment" pk="id_equip" />
+			</fk>
+			<fk name="fk_Works_Applications" to_schema="AbobusDB.dbo" to_table="Applications" >
+				<fk_column name="id_application" pk="id_application" />
+			</fk>
+		</table>
+	</schema>
+	<layout name="Layout" id="Layout-62" show_relation="columns" >
+		<entity schema="AbobusDB.dbo" name="ApplicationTypes" color="C7F4BE" x="48" y="192" />
+		<entity schema="AbobusDB.dbo" name="Applications" color="C7F4BE" x="304" y="80" />
+		<entity schema="AbobusDB.dbo" name="Clients" color="C7F4BE" x="768" y="80" />
+		<entity schema="AbobusDB.dbo" name="Contract" color="C7F4BE" x="544" y="80" />
+		<entity schema="AbobusDB.dbo" name="Docs" color="C7F4BE" x="768" y="320" />
+		<entity schema="AbobusDB.dbo" name="Employees" color="BED3F4" x="1024" y="80" />
+		<entity schema="AbobusDB.dbo" name="Equipments" color="C7F4BE" x="544" y="384" />
+		<entity schema="AbobusDB.dbo" name="Positions" color="BED3F4" x="1232" y="80" />
+		<entity schema="AbobusDB.dbo" name="Regions" color="BED3F4" x="1232" y="336" />
+		<entity schema="AbobusDB.dbo" name="Roles" color="BED3F4" x="1024" y="336" />
+		<entity schema="AbobusDB.dbo" name="Rooms" color="C7F4BE" x="304" y="384" />
+		<entity schema="AbobusDB.dbo" name="Services" color="C1D8EE" x="912" y="464" />
+		<entity schema="AbobusDB.dbo" name="Statuses" color="C7F4BE" x="112" y="384" />
+		<entity schema="AbobusDB.dbo" name="Works" color="C1D8EE" x="1200" y="480" />
+		<group name="Employees" color="ECF0F7" >
+			<entity schema="AbobusDB.dbo" name="Employees" />
+			<entity schema="AbobusDB.dbo" name="Positions" />
+			<entity schema="AbobusDB.dbo" name="Regions" />
+			<entity schema="AbobusDB.dbo" name="Roles" />
+		</group>
+		<group name="Applications" color="EEF7EC" >
+			<entity schema="AbobusDB.dbo" name="Applications" />
+			<entity schema="AbobusDB.dbo" name="Contract" />
+			<entity schema="AbobusDB.dbo" name="Clients" />
+			<entity schema="AbobusDB.dbo" name="Docs" />
+			<entity schema="AbobusDB.dbo" name="Rooms" />
+			<entity schema="AbobusDB.dbo" name="Statuses" />
+			<entity schema="AbobusDB.dbo" name="ApplicationTypes" />
+			<entity schema="AbobusDB.dbo" name="Equipments" />
+		</group>
+		<script name="AbobusDBSql - main.sql" id="Editor-1174" language="SQL" >
+			<string><![CDATA[USE master;
+GO
+
+DROP DATABASE AbobusDB;
+GO
+
+CREATE DATABASE AbobusDB;
+GO
+
+CREATE TABLE AbobusDB.dbo.ApplicationTypes ( 
+	id_applicationtype   int    IDENTITY(1,1)  NOT NULL,
+	name                 varchar(50)      NOT NULL,
+	description          varchar(200)      NULL,
+	CONSTRAINT pk_ApplicationType PRIMARY KEY  ( id_applicationtype ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Docs ( 
+	id_docs              int    IDENTITY(1,1)  NOT NULL,
+	id_doctemplate       int      NOT NULL,
+	name                 varchar(100)      NOT NULL,
+	path                 nvarchar(max)      NOT NULL,
+	CONSTRAINT pk_Docs PRIMARY KEY  ( id_docs ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Positions ( 
+	id_position          int    IDENTITY(1,1)  NOT NULL,
+	name                 varchar(100)      NOT NULL,
+	CONSTRAINT pk_Position PRIMARY KEY  ( id_position ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Regions ( 
+	id_region            int    IDENTITY(1,1)  NOT NULL,
+	name                 varchar(100)      NOT NULL,
+	CONSTRAINT pk_Region PRIMARY KEY  ( id_region ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Roles ( 
+	id_role              int    IDENTITY(1,1)  NOT NULL,
+	name                 varchar(100)      NOT NULL,
+	CONSTRAINT pk_Role PRIMARY KEY  ( id_role ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Rooms ( 
+	id_room              int    IDENTITY(1,1)  NOT NULL,
+	appointment          varchar(200)      NOT NULL,
+	floor                int      NULL,
+	space                int      NOT NULL,
+	CONSTRAINT pk_Room PRIMARY KEY  ( id_room ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Statuses ( 
+	id_status            int    IDENTITY(1,1)  NOT NULL,
+	name                 varchar(100)      NOT NULL,
+	CONSTRAINT pk_St PRIMARY KEY  ( id_status ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Clients ( 
+	id_client            int    IDENTITY(1,1)  NOT NULL,
+	id_room              int      NOT NULL,
+	name                 varchar(100)      NOT NULL,
+	mail                 varchar(100)      NOT NULL,
+	ph_number            nvarchar(18)      NOT NULL,
+	CONSTRAINT pk_Client PRIMARY KEY  ( id_client ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Employees ( 
+	id_employee          int    IDENTITY(1,1)  NOT NULL,
+	id_role              int      NOT NULL,
+	id_region            int      NOT NULL,
+	id_position          int      NOT NULL,
+	name                 varchar(100)      NOT NULL,
+	ph_number            nvarchar(18)      NULL,
+	mail                 varchar(100)      NULL,
+	CONSTRAINT pk_Employee PRIMARY KEY  ( id_employee ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Agreements ( 
+	id_agreement         int    IDENTITY(1,1)  NOT NULL,
+	id_docs              int      NOT NULL,
+	id_client            int      NOT NULL,
+	name                 varchar(100)      NULL,
+	time_start           time(7)      NULL,
+	time_end             time(7)      NULL,
+	CONSTRAINT pk_Agreement PRIMARY KEY  ( id_agreement ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Equipments ( 
+	id_equip             int    IDENTITY(1,1)  NOT NULL,
+	id_client            int      NOT NULL,
+	id_agreement         int      NOT NULL,
+	name                 varchar(100)      NOT NULL,
+	type                 varchar(100)      NOT NULL,
+	serial_number        nvarchar(20)      NOT NULL,
+	description          varchar(200)      NULL,
+	CONSTRAINT pk_Equipment PRIMARY KEY  ( id_equip ) 
+ );
+GO
+
+CREATE TABLE AbobusDB.dbo.Applications ( 
+	id_application       int    IDENTITY(1,1)  NOT NULL,
+	id_room              int      NOT NULL,
+	id_status            int      NOT NULL,
+	id_aplicationtype    int      NOT NULL,
+	id_equip             int      NOT NULL,
+	id_agreement         int      NOT NULL,
+	id_docs              int      NOT NULL,
+	id_employee          int      NOT NULL,
+	date                 datetime      NULL,
+	description          varchar(200)      NULL,
+	CONSTRAINT pk_Application PRIMARY KEY  ( id_application ) 
+ );
+GO
+
+ALTER TABLE AbobusDB.dbo.Agreements ADD CONSTRAINT fk_agreement_client FOREIGN KEY ( id_client ) REFERENCES AbobusDB.dbo.Clients( id_client );
+GO
+
+ALTER TABLE AbobusDB.dbo.Agreements ADD CONSTRAINT fk_Agreement_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
+GO
+
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Room FOREIGN KEY ( id_room ) REFERENCES AbobusDB.dbo.Rooms( id_room );
+GO
+
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Status FOREIGN KEY ( id_status ) REFERENCES AbobusDB.dbo.Statuses( id_status );
+GO
+
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_ApplicationType FOREIGN KEY ( id_aplicationtype ) REFERENCES AbobusDB.dbo.ApplicationTypes( id_applicationtype );
+GO
+
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Equipment FOREIGN KEY ( id_equip ) REFERENCES AbobusDB.dbo.Equipments( id_equip );
+GO
+
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Agreement FOREIGN KEY ( id_agreement ) REFERENCES AbobusDB.dbo.Agreements( id_agreement );
+GO
+
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
+GO
+
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Employee FOREIGN KEY ( id_employee ) REFERENCES AbobusDB.dbo.Employees( id_employee );
+GO
+
+ALTER TABLE AbobusDB.dbo.Clients ADD CONSTRAINT fk_Client_Room FOREIGN KEY ( id_room ) REFERENCES AbobusDB.dbo.Rooms( id_room );
+GO
+
+ALTER TABLE AbobusDB.dbo.Employees ADD CONSTRAINT fk_Employee_Role FOREIGN KEY ( id_role ) REFERENCES AbobusDB.dbo.Roles( id_role );
+GO
+
+ALTER TABLE AbobusDB.dbo.Employees ADD CONSTRAINT fk_Employee_Region FOREIGN KEY ( id_region ) REFERENCES AbobusDB.dbo.Regions( id_region );
+GO
+
+ALTER TABLE AbobusDB.dbo.Employees ADD CONSTRAINT fk_Employee_Position FOREIGN KEY ( id_position ) REFERENCES AbobusDB.dbo.Positions( id_position );
+GO
+
+ALTER TABLE AbobusDB.dbo.Equipments ADD CONSTRAINT fk_Equipment_Client FOREIGN KEY ( id_client ) REFERENCES AbobusDB.dbo.Clients( id_client );
+GO
+
+ALTER TABLE AbobusDB.dbo.Equipments ADD CONSTRAINT fk_Equipment_Agreement FOREIGN KEY ( id_agreement ) REFERENCES AbobusDB.dbo.Agreements( id_agreement );
+GO]]></string>
+		</script>
+	</layout>
+	<layout name="Layout_001" id="Layout-1721" show_relation="columns" >
+		<entity schema="AbobusDB.dbo" name="ApplicationTypes" color="C7F4BE" x="48" y="384" />
+		<entity schema="AbobusDB.dbo" name="Applications" color="C7F4BE" x="304" y="80" />
+		<entity schema="AbobusDB.dbo" name="Clients" color="F4DDBE" x="1216" y="112" />
+		<entity schema="AbobusDB.dbo" name="Contract" color="F4DDBE" x="992" y="112" />
+		<entity schema="AbobusDB.dbo" name="Docs" color="F4DDBE" x="1216" y="352" />
+		<entity schema="AbobusDB.dbo" name="Employees" color="BED3F4" x="992" y="592" />
+		<entity schema="AbobusDB.dbo" name="Equipments" color="C7F4BE" x="576" y="384" />
+		<entity schema="AbobusDB.dbo" name="Positions" color="BED3F4" x="1216" y="592" />
+		<entity schema="AbobusDB.dbo" name="Regions" color="BED3F4" x="1216" y="848" />
+		<entity schema="AbobusDB.dbo" name="Roles" color="BED3F4" x="992" y="848" />
+		<entity schema="AbobusDB.dbo" name="Rooms" color="F4DDBE" x="1424" y="112" />
+		<entity schema="AbobusDB.dbo" name="Services" color="C7F4BE" x="768" y="80" />
+		<entity schema="AbobusDB.dbo" name="Statuses" color="C7F4BE" x="304" y="384" />
+		<entity schema="AbobusDB.dbo" name="Works" color="C7F4BE" x="544" y="80" />
+		<group name="Employees" color="ECF0F7" >
+			<entity schema="AbobusDB.dbo" name="Employees" />
+			<entity schema="AbobusDB.dbo" name="Positions" />
+			<entity schema="AbobusDB.dbo" name="Regions" />
+			<entity schema="AbobusDB.dbo" name="Roles" />
+		</group>
+		<group name="Agreements" color="F7F2EC" >
+			<entity schema="AbobusDB.dbo" name="Clients" />
+			<entity schema="AbobusDB.dbo" name="Docs" />
+			<entity schema="AbobusDB.dbo" name="Contract" />
+			<entity schema="AbobusDB.dbo" name="Rooms" />
+		</group>
+		<group name="Applications" color="EEF7EC" >
+			<entity schema="AbobusDB.dbo" name="Statuses" />
+			<entity schema="AbobusDB.dbo" name="ApplicationTypes" />
+			<entity schema="AbobusDB.dbo" name="Services" />
+			<entity schema="AbobusDB.dbo" name="Works" />
+			<entity schema="AbobusDB.dbo" name="Equipments" />
+			<entity schema="AbobusDB.dbo" name="Applications" />
+		</group>
+	</layout>
+</project>
