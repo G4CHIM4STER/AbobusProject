@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Data;
+using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,6 +24,26 @@ namespace Brylev.Clients
 		public AllClients()
 		{
 			InitializeComponent();
+
+			using(SqlConnection connection = new SqlConnection(App.connectionParams))
+			{
+				connection.Open();
+
+				string command = String.Format(Utilities.Utils.select, "Client");
+
+				SqlDataAdapter sqlData = new SqlDataAdapter(command, connection);
+
+				DataTable dataTable = new DataTable();
+				sqlData.Fill(dataTable);
+
+				//ClientsDataGrid.DataContext = dataTable;
+				//Utilities.Utils.FitDataGridToContent(ClientsDataGrid);
+
+				ClientsDataGrid.ItemsSource = dataTable.AsDataView();
+
+			}
+
+			//ClientsDataGrid.DataSource = dataTable;
 		}
 	}
 }

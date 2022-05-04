@@ -1,0 +1,1 @@
+git checkout fcd7f29 -- Brylev/Brylev.csproj Brylev/Brylev.csproj.user Brylev/App.xaml Brylev/App.xaml.cs Brylev/AfterAuthorization/AfterAuthorization.xaml Brylev/AfterAuthorization/AfterAuthorization.xaml.cs Brylev/Requests/AllRequests.xaml Brylev/Requests/AllRequests.xaml.cs Brylev/Requests/Request.xaml Brylev/Requests/Request.xaml.cs
