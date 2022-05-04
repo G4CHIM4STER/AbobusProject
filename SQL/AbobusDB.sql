@@ -117,6 +117,7 @@ CREATE TABLE AbonbusDB.dbo.Application (
 	id_equip             int      NOT NULL,
 	id_agreement         int      NOT NULL,
 	id_docs              int      NOT NULL,
+	id_employee          int      NOT NULL,
 	date                 datetime      NULL,
 	description          varchar(200)      NULL,
 	CONSTRAINT pk_Application PRIMARY KEY  ( id_application ) 
@@ -145,6 +146,9 @@ ALTER TABLE AbonbusDB.dbo.Application ADD CONSTRAINT fk_Application_Agreement FO
 GO
 
 ALTER TABLE AbonbusDB.dbo.Application ADD CONSTRAINT fk_Application_Docs FOREIGN KEY ( id_docs ) REFERENCES AbonbusDB.dbo.Docs( id_docs );
+GO
+
+ALTER TABLE AbonbusDB.dbo.Application ADD CONSTRAINT fk_Application_Employee FOREIGN KEY ( id_employee ) REFERENCES AbonbusDB.dbo.Employee( id_employee );
 GO
 
 ALTER TABLE AbonbusDB.dbo.Client ADD CONSTRAINT fk_Client_Room FOREIGN KEY ( id_room ) REFERENCES AbonbusDB.dbo.Room( id_room );
