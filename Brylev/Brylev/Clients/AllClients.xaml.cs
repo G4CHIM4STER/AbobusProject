@@ -26,7 +26,7 @@ namespace Brylev.Clients
 			InitializeComponent();
 
 			//string command = String.Format(Utilities.Utils.select, "Client");
-			string table = "Client";
+			string table = "Clients";
 
 			Utilities.Utils.FillDataGrid(this.ClientsDataGrid, table);
 		}

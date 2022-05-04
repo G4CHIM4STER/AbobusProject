@@ -25,7 +25,7 @@ namespace Brylev.Employees
 
 			//string command = String.Format(Utilities.Utils.select, "Employee");
 
-			string table = "Employee";
+			string table = "Employees";
 
 			Utilities.Utils.FillDataGrid(this.EmployeesDataGrid, table);
 		}

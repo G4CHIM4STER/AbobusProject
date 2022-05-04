@@ -53,8 +53,6 @@ C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Бр�
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Equipment\AllEquipment.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Equipment\Equipment.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\MainWindow\MainWindow.g.cs
-C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Reports\AllReports.g.cs
-C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Reports\Report.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\App.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev_MarkupCompile.cache
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev_MarkupCompile.lref
@@ -66,8 +64,6 @@ C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Бр�
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Equipment\AllEquipment.baml
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Equipment\Equipment.baml
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\MainWindow\MainWindow.baml
-C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Reports\AllReports.baml
-C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Reports\Report.baml
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.g.resources
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.Properties.Resources.resources
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.csproj.GenerateResource.cache
@@ -82,3 +78,7 @@ C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Бр�
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Application\Application.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Application\AllApplications.baml
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Application\Application.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Docs\AllDocs.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Docs\Doc.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Docs\AllDocs.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Docs\Doc.baml

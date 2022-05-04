@@ -24,7 +24,7 @@ namespace Brylev.Agreements
 			InitializeComponent();
 
 			//string command = String.Format(Utilities.Utils.select, "Agreement");
-			string table = "Agreement";
+			string table = "Agreements";
 
 			Utilities.Utils.FillDataGrid(this.AgreementsDataGrid, table);
 		}
