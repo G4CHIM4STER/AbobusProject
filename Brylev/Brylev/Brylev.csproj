@@ -83,11 +83,11 @@
     <Compile Include="Clients\Client.xaml.cs">
       <DependentUpon>Client.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Agreements\AllAgreements.xaml.cs">
-      <DependentUpon>AllAgreements.xaml</DependentUpon>
+    <Compile Include="Contracts\AllContracts.xaml.cs">
+      <DependentUpon>AllContracts.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Agreements\Agreement.xaml.cs">
-      <DependentUpon>Agreement.xaml</DependentUpon>
+    <Compile Include="Contracts\Contract.xaml.cs">
+      <DependentUpon>Contract.xaml</DependentUpon>
     </Compile>
     <Compile Include="Employees\AllEmployees.xaml.cs">
       <DependentUpon>AllEmployees.xaml</DependentUpon>
@@ -157,11 +157,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Agreements\AllAgreements.xaml">
+    <Page Include="Contracts\AllContracts.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Agreements\Agreement.xaml">
+    <Page Include="Contracts\Contract.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

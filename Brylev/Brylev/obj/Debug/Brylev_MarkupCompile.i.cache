@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\App.xaml
-14273887127
+14-675986149
 
-201062406475
+20-2086744193
 13-38814620
-AfterAuthorization\AfterAuthorization.xaml;Clients\AllClients.xaml;Clients\Client.xaml;Agreements\AllAgreements.xaml;Agreements\Agreement.xaml;Employees\AllEmployees.xaml;Employees\Employee.xaml;Equipment\AllEquipment.xaml;Equipment\Equipment.xaml;MainWindow\MainWindow.xaml;Docs\AllDocs.xaml;Docs\Doc.xaml;Application\AllApplications.xaml;Application\Application.xaml;
+AfterAuthorization\AfterAuthorization.xaml;Clients\AllClients.xaml;Clients\Client.xaml;Contracts\AllContracts.xaml;Contracts\Contract.xaml;Employees\AllEmployees.xaml;Employees\Employee.xaml;Equipment\AllEquipment.xaml;Equipment\Equipment.xaml;MainWindow\MainWindow.xaml;Docs\AllDocs.xaml;Docs\Doc.xaml;Application\AllApplications.xaml;Application\Application.xaml;
 
-True
+False
 

@@ -70,10 +70,6 @@ C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Бр�
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.csproj.CoreCompileInputs.cache
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.exe
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Brylev.pdb
-C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Agreements\AllAgreements.g.cs
-C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Agreements\Agreement.g.cs
-C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Agreements\AllAgreements.baml
-C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Agreements\Agreement.baml
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Application\AllApplications.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Application\Application.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Application\AllApplications.baml
@@ -82,3 +78,7 @@ C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Бр�
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Docs\Doc.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Docs\AllDocs.baml
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Docs\Doc.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Contracts\AllContracts.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Contracts\Contract.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Contracts\AllContracts.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Contracts\Contract.baml
