@@ -10,10 +10,9 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Brylev
+namespace Brylev.MainWindow
 {
 	/// <summary>
 	/// Логика взаимодействия для MainWindow.xaml
@@ -23,6 +22,23 @@ namespace Brylev
 		public MainWindow()
 		{
 			InitializeComponent();
+		}
+
+		private void AuthorizeButton_Click(object sender, RoutedEventArgs e)
+		{
+			AfterAuthorization.AfterAuthorization afterAuthorization = new AfterAuthorization.AfterAuthorization();
+
+			this.Hide();
+			afterAuthorization.Show();
+
+			afterAuthorization.Closing += AfterAuthorization_Closed;
+		}
+
+		private void AfterAuthorization_Closed(object sender, EventArgs e)
+		{
+			base.OnClosed(e);
+
+			Application.Current.Shutdown();
 		}
 	}
 }
