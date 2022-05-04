@@ -27,6 +27,7 @@ namespace Brylev.Agreements
 			string table = "Agreements";
 
 			Utilities.Utils.FillDataGrid(this.AgreementsDataGrid, table);
+
 		}
 	}
 }
