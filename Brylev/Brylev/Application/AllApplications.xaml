@@ -26,6 +26,8 @@
 			<TextBox Text="Заявки на обслуживание" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="White"/>
 		</Grid>
 
-		<DataGrid x:Name="ApplicationsDataGrid" BorderBrush="White" Grid.Row="1" Grid.ColumnSpan="5"/>
+		<Grid Grid.Row="1" Grid.ColumnSpan="5">
+			<DataGrid x:Name="ApplicationsDataGrid" BorderBrush="White" HorizontalAlignment="Left"/>
+		</Grid>
 	</Grid>
 </Window>

@@ -27,7 +27,7 @@
 		</Grid>
 
 		<Grid Grid.Row="1" Grid.ColumnSpan="5">
-			<DataGrid x:Name="ClientsDataGrid" BorderBrush="White" HorizontalAlignment="Center" MaxColumnWidth="300"/>
+			<DataGrid x:Name="ClientsDataGrid" BorderBrush="White" HorizontalAlignment="Left"/>
 		</Grid>
 	</Grid>
 </Window>

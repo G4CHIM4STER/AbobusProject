@@ -26,6 +26,8 @@
 			<TextBox Text="Список оборудования" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" BorderBrush="White"/>
 		</Grid>
 
-		<DataGrid x:Name="EquipmentDataGrid" BorderBrush="White" Grid.Row="1" Grid.ColumnSpan="5"/>
+		<Grid Grid.Row="1" Grid.ColumnSpan="5">
+			<DataGrid x:Name="EquipmentDataGrid" BorderBrush="White" HorizontalAlignment="Left"/>
+		</Grid>
 	</Grid>
 </Window>
