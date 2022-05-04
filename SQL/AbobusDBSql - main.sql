@@ -1,3 +1,12 @@
+USE master;
+GO
+
+DROP DATABASE AbobusDB;
+GO
+
+CREATE DATABASE AbobusDB;
+GO
+
 CREATE TABLE AbobusDB.dbo.ApplicationTypes ( 
 	id_applicationtype   int    IDENTITY (1, 1)  NOT NULL,
 	name                 varchar(50)      NOT NULL,
@@ -180,4 +189,3 @@ GO
 
 ALTER TABLE AbobusDB.dbo.Works ADD CONSTRAINT fk_Works_Applications FOREIGN KEY ( id_application ) REFERENCES AbobusDB.dbo.Applications( id_application );
 GO
-
