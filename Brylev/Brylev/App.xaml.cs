@@ -16,7 +16,7 @@ namespace Brylev
 	{
 		public static AfterAuthorization.AfterAuthorization afterAuthorization;
 		
-		public static string database = @"(localdb)\MSSQLLocalDB";
+		public static string database = @".\SQLEXPRESS";
 		public static string connectionParams = $"Persist Security Info = False; Integrated Security = true; Initial Catalog = AbobusDB; Server = {database}";
 		
 		public App()
