@@ -26,7 +26,8 @@ namespace Brylev
 
 		public class DataBase
 		{
-			//public Dictionary<int,string> 
+			public Dictionary<int, string> Application;
+
 		}
 	}
 }
