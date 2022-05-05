@@ -79,7 +79,7 @@ CREATE TABLE AbobusDB.dbo.Clients (
  );
 GO
 
-CREATE TABLE AbobusDB.dbo.Contract ( 
+CREATE TABLE AbobusDB.dbo.Contracts ( 
 	id_contract          int    IDENTITY (1, 1)  NOT NULL,
 	id_docs              int      NOT NULL,
 	id_client            int      NOT NULL,
@@ -151,7 +151,7 @@ GO
 ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Equipment FOREIGN KEY ( id_equip ) REFERENCES AbobusDB.dbo.Equipments( id_equip );
 GO
 
-ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Agreement FOREIGN KEY ( id_contract ) REFERENCES AbobusDB.dbo.Contract( id_contract );
+ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Agreement FOREIGN KEY ( id_contract ) REFERENCES AbobusDB.dbo.Contracts( id_contract );
 GO
 
 ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
@@ -163,10 +163,10 @@ GO
 ALTER TABLE AbobusDB.dbo.Clients ADD CONSTRAINT fk_Client_Room FOREIGN KEY ( id_room ) REFERENCES AbobusDB.dbo.Rooms( id_room );
 GO
 
-ALTER TABLE AbobusDB.dbo.Contract ADD CONSTRAINT fk_agreement_client FOREIGN KEY ( id_client ) REFERENCES AbobusDB.dbo.Clients( id_client );
+ALTER TABLE AbobusDB.dbo.Contracts ADD CONSTRAINT fk_agreement_client FOREIGN KEY ( id_client ) REFERENCES AbobusDB.dbo.Clients( id_client );
 GO
 
-ALTER TABLE AbobusDB.dbo.Contract ADD CONSTRAINT fk_Agreement_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
+ALTER TABLE AbobusDB.dbo.Contracts ADD CONSTRAINT fk_Agreement_Docs FOREIGN KEY ( id_docs ) REFERENCES AbobusDB.dbo.Docs( id_docs );
 GO
 
 ALTER TABLE AbobusDB.dbo.Employees ADD CONSTRAINT fk_Employee_Role FOREIGN KEY ( id_role ) REFERENCES AbobusDB.dbo.Roles( id_role );
@@ -178,7 +178,7 @@ GO
 ALTER TABLE AbobusDB.dbo.Employees ADD CONSTRAINT fk_Employee_Position FOREIGN KEY ( id_position ) REFERENCES AbobusDB.dbo.Positions( id_position );
 GO
 
-ALTER TABLE AbobusDB.dbo.Equipments ADD CONSTRAINT fk_Equipment_Agreement FOREIGN KEY ( id_contract ) REFERENCES AbobusDB.dbo.Contract( id_contract );
+ALTER TABLE AbobusDB.dbo.Equipments ADD CONSTRAINT fk_Equipment_Agreement FOREIGN KEY ( id_contract ) REFERENCES AbobusDB.dbo.Contracts( id_contract );
 GO
 
 ALTER TABLE AbobusDB.dbo.Works ADD CONSTRAINT fk_Works_Services FOREIGN KEY ( id_services ) REFERENCES AbobusDB.dbo.Services( id_services );

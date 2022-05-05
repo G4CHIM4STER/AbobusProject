@@ -32,6 +32,7 @@
 		<Button x:Name="EmployeesButton" Content="Сотрудники" Grid.Column="0" Grid.Row="4" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
 		<Button x:Name="EquipmentButton" Content="Обрудование" Grid.Column="0" Grid.Row="5" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
 		<Button x:Name="ReportsButton" Content="Отчеты" Grid.Column="0" Grid.Row="6" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
+		<Button x:Name="ServicesButton" Content="Услуги" Grid.Column="0" Grid.Row="7" Background="#FFDAE8FC" FontSize="20" FontWeight="Bold" Click="ButtonClick"/>
 
 		<Grid Grid.Row="1" Grid.Column="1" Grid.RowSpan="7" Grid.ColumnSpan="3" Background="LightCyan">
 			<Grid x:Name="ChildWindow" Margin="10,10,10,10">
@@ -45,7 +46,7 @@
 			<TextBlock x:Name="EmployeeNameBox"/>
 		</Grid>
 
-		<Grid Background="#FFDAE8FC" Grid.Column="0" Grid.Row="7"/>
+		<!--Grid Background="#FFDAE8FC" Grid.Column="0" Grid.Row="7"/-->
 
 		<Button Grid.Column="4" Grid.Row="0" Content="Выйти" Background="#FFFAD7AC" FontSize="20" FontWeight="Bold" Click="Exit"/>
 	</Grid>

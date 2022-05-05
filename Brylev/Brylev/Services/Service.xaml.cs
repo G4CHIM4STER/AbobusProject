@@ -12,14 +12,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Brylev.Docs
+namespace Brylev.Services
 {
 	/// <summary>
-	/// Логика взаимодействия для AllReports.xaml
+	/// Логика взаимодействия для Service.xaml
 	/// </summary>
-	public partial class AllDocs : Window
+	public partial class Service : Window
 	{
-		public AllDocs()
+		public Service()
 		{
 			InitializeComponent();
 		}

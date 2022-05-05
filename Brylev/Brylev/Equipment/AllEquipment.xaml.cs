@@ -25,9 +25,9 @@ namespace Brylev.Equipment
 
 			//string command = String.Format(Utilities.Utils.select, "Equipment");
 
-			string table = "Equipment";
+			string table = "Equipments";
 
-			Utilities.Utils.FillDataGrid(this.EquipmentDataGrid, table);
+			Utilities.Utils.FillDataGrid(this.EquipmentsDataGrid, table);
 		}
 	}
 }

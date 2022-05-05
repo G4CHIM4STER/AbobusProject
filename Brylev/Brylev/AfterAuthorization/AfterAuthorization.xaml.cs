@@ -73,7 +73,7 @@ namespace Brylev.AfterAuthorization
 				}
 				else if (sender.Equals(this.ContractsButton))
 				{
-					OpenNewChildWindow(typeof(Agreements.AllAgreements));
+					OpenNewChildWindow(typeof(Contracts.AllContracts));
 				}
 				else if (sender.Equals(this.EmployeesButton))
 				{
@@ -85,11 +85,15 @@ namespace Brylev.AfterAuthorization
 				}
 				else if (sender.Equals(this.ReportsButton))
 				{
-					OpenNewChildWindow(typeof(Reports.AllReports));
+					OpenNewChildWindow(typeof(Docs.AllDocs));
 				}
 				else if (sender.Equals(this.RequestsButton))
 				{
 					OpenNewChildWindow(typeof(Applications.AllApplications));
+				}
+				else if (sender.Equals(this.ServicesButton))
+				{
+					OpenNewChildWindow(typeof(Services.AllServices));
 				}
 			}
 			else
@@ -110,17 +114,6 @@ namespace Brylev.AfterAuthorization
 
 			this.ChildWindow.Children.Add(requestContent as UIElement);
 		}
-
-		//private bool OpenExistingWindow(Window window)
-		//{
-		//	foreach (var child in this.ChildWindow.Children)
-		//	{
-		//		if (child.GetType().Equals(window))
-		//		{
-
-		//		}
-		//	}
-		//}
 
 		/// <summary>
 		/// Метод очищения внутренних окон

@@ -12,16 +12,22 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Brylev.Docs
+namespace Brylev.Contracts
 {
 	/// <summary>
-	/// Логика взаимодействия для AllReports.xaml
+	/// Логика взаимодействия для AllContracts.xaml
 	/// </summary>
-	public partial class AllDocs : Window
+	public partial class AllContracts : Window
 	{
-		public AllDocs()
+		public AllContracts()
 		{
 			InitializeComponent();
+
+			//string command = String.Format(Utilities.Utils.select, "Agreement");
+			string table = "Contracts";
+
+			Utilities.Utils.FillDataGrid(this.ContractsDataGrid, table);
+
 		}
 	}
 }

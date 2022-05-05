@@ -1,11 +1,11 @@
-﻿<Window x:Class="Brylev.Equipment.AllEquipment"
+﻿<Window x:Class="Brylev.Services.AllServices"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:Brylev.Equipment"
+        xmlns:local="clr-namespace:Brylev.Services"
         mc:Ignorable="d"
-        Title="AllEquipment">
+        Title="AllServices">
 	<Grid>
 		<Grid.ColumnDefinitions>
 			<ColumnDefinition Width="270*"/>
@@ -27,7 +27,7 @@
 		</Grid>
 
 		<Grid Grid.Row="1" Grid.ColumnSpan="5">
-			<DataGrid x:Name="EquipmentsDataGrid" BorderBrush="White" HorizontalAlignment="Left"/>
+			<DataGrid x:Name="ServicesDataGrid" BorderBrush="White" HorizontalAlignment="Left"/>
 		</Grid>
 	</Grid>
 </Window>

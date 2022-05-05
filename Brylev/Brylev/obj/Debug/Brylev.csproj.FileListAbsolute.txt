@@ -82,3 +82,7 @@ C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Бр�
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Contracts\Contract.g.cs
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Contracts\AllContracts.baml
 C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Contracts\Contract.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Services\AllServices.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Services\Service.g.cs
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Services\AllServices.baml
+C:\Users\efrem\Desktop\Институт\`Абрамович\Дипломы\Брылев\AbobusProject\Brylev\Brylev\obj\Debug\Services\Service.baml

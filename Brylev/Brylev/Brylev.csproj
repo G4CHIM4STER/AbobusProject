@@ -113,6 +113,12 @@
     <Compile Include="Application\Application.xaml.cs">
       <DependentUpon>Application.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Services\AllServices.xaml.cs">
+      <DependentUpon>AllServices.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Service.xaml.cs">
+      <DependentUpon>Service.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilities\Utils.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -198,6 +204,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Application\Application.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\AllServices.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Services\Service.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
