@@ -15,6 +15,7 @@ namespace Brylev.Utilities
 	internal class Utils
 	{
 		public static string select = "SELECT * FROM {0}";
+		public static string insert = "INSERT INTO {0} ({1}) VALUES({2})";
 		public static Window GetWindowInstance(Type T)
 		{
 			var windows = System.Windows.Application.Current.Windows;
@@ -48,25 +49,74 @@ namespace Brylev.Utilities
 		}
 		public static void FillDataGrid(DataGrid dataGrid, string table)
 		{
-			using (SqlConnection connection = new SqlConnection(App.connectionParams))
+			try
 			{
-				connection.Open();
+				using (SqlConnection connection = new SqlConnection(App.connectionParams))
+				{
+					connection.Open();
 
-				string command = String.Format(Utilities.Utils.select, table);
+					string command = String.Format(Utilities.Utils.select, table);
 
-				SqlDataAdapter sqlData = new SqlDataAdapter(command, connection);
+					SqlDataAdapter sqlData = new SqlDataAdapter(command, connection);
 
-				DataTable dataTable = new DataTable();
-				sqlData.Fill(dataTable);
+					DataTable dataTable = new DataTable();
+					sqlData.Fill(dataTable);
 
-				//ClientsDataGrid.DataContext = dataTable;
-				//Utilities.Utils.FitDataGridToContent(ClientsDataGrid);
+					//ClientsDataGrid.DataContext = dataTable;
+					//Utilities.Utils.FitDataGridToContent(ClientsDataGrid);
 
-				dataGrid.ItemsSource = dataTable.AsDataView();
+					dataGrid.ItemsSource = dataTable.AsDataView();
 
+				}
 			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			
 
 			//ClientsDataGrid.DataSource = dataTable;
+		}
+		public static void InsertDataIntoDB(string table, Dictionary<string, string> dataColumnPairs)
+		{
+			StringBuilder columns = new StringBuilder();
+			StringBuilder values = new StringBuilder();
+			int i = 0;
+
+			try
+			{
+				foreach (var pair in dataColumnPairs)
+				{
+					i++;
+
+					columns.Append(pair.Key);
+					values.Append(pair.Value);
+
+					if (dataColumnPairs.Count < i)
+					{
+						columns.Append(", ");
+						values.Append(", ");
+					}
+				}
+
+				string command = String.Format(insert, table, columns, values);
+
+				using (SqlConnection connection = new SqlConnection(App.connectionParams))
+				{
+					connection.Open();
+
+					SqlCommand sqlCommand = new SqlCommand(command, connection);
+
+					sqlCommand.ExecuteNonQuery();
+				}
+			}
+			catch (Exception)
+			{
+
+				throw;
+			}
+			
 		}
 
 		//public static void FitDataGridToContent(DataGrid dg)

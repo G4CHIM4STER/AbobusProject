@@ -18,11 +18,15 @@ namespace Brylev
 		
 		public static string database = @"(localdb)\MSSQLLocalDB";
 		public static string connectionParams = $"Persist Security Info = False; Integrated Security = true; Initial Catalog = AbobusDB; Server = {database}";
-
-		public static SqlConnection sqlConnection = new SqlConnection(App.connectionParams);
 		
 		public App()
 		{
+
+		}
+
+		public class DataBase
+		{
+			//public Dictionary<int,string> 
 		}
 	}
 }
