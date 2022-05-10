@@ -89,6 +89,12 @@
     <Compile Include="Contracts\Contract.xaml.cs">
       <DependentUpon>Contract.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Docs\Contract.xaml.cs">
+      <DependentUpon>Contract.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Docs\Plan.xaml.cs">
+      <DependentUpon>Plan.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employees\AllEmployees.xaml.cs">
       <DependentUpon>AllEmployees.xaml</DependentUpon>
     </Compile>
@@ -103,9 +109,6 @@
     </Compile>
     <Compile Include="Docs\AllDocs.xaml.cs">
       <DependentUpon>AllDocs.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Docs\Doc.xaml.cs">
-      <DependentUpon>Doc.xaml</DependentUpon>
     </Compile>
     <Compile Include="Application\AllApplications.xaml.cs">
       <DependentUpon>AllApplications.xaml</DependentUpon>
@@ -171,6 +174,14 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Docs\Contract.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Docs\Plan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Employees\AllEmployees.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -192,10 +203,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Docs\AllDocs.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Docs\Doc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

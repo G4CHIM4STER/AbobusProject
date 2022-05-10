@@ -1,0 +1,10 @@
+USE AbobusDB;
+GO
+
+CREATE PROCEDURE SelectAllContracts
+AS
+BEGIN
+	SELECT C.id_contract AS 'Номер договора', CL.name AS 'Имя клиента', C.name AS 'Название договра', C.time_start AS 'Дата начала', C.time_end AS 'Дата завершения'
+	FROM Contracts AS C
+	INNER JOIN Clients as CL 
+	ON CL.id_client = C.id_name

@@ -7,6 +7,16 @@
         mc:Ignorable="d"
         Title="AllReports" Height="450" Width="800">
     <Grid>
-        
+        <Button Height="68" Width="186" Margin="147,180,467,186">
+            <TextBlock Text="Договоры на техническое обслуживание оборудования" TextWrapping="Wrap"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+            </TextBlock>
+        </Button>
+        <Button Height="68" Width="186" Margin="498,0,116,0" VerticalAlignment="Center">
+            <TextBlock Text="План-графики технического облсуживания" TextWrapping="Wrap"
+                       VerticalAlignment="Center" HorizontalAlignment="Center" TextAlignment="Center">
+            </TextBlock>
+        </Button>
+
     </Grid>
 </Window>

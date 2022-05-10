@@ -138,6 +138,20 @@ CREATE TABLE AbobusDB.dbo.Works (
  );
 GO
 
+CREATE TABLE AbobusDB.dbo.ContractList (
+	id_contractlist	int	IDENTITY(1,1) NOT NULL,
+	id_contract int NOT NULL,
+	id_equip int NOT NULL,
+	quantity int not null,
+	CONSTRAINT pk_ContractList PRIMARY KEY (id_contractlist)
+);
+GO
+ALTER TABLE AbobusDB.dbo.ContractList ADD CONSTRAINT fk_ContractList_Contract FOREIGN KEY (id_contract) REFERENCES AbobusDB.dbo.Contracts(id_contract);
+
+GO
+ALTER TABLE AbobusDB.dbo.ContractList ADD CONSTRAINT fk_ContractList_Equipment FOREIGN KEY (id_equip) REFERENCES AbobusDB.dbo.Equipments(id_equip);
+GO
+
 ALTER TABLE AbobusDB.dbo.Applications ADD CONSTRAINT fk_Application_Room FOREIGN KEY ( id_room ) REFERENCES AbobusDB.dbo.Rooms( id_room );
 GO
 
