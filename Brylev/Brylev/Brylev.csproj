@@ -89,9 +89,6 @@
     <Compile Include="Contracts\Contract.xaml.cs">
       <DependentUpon>Contract.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Docs\Contract.xaml.cs">
-      <DependentUpon>Contract.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Docs\Plan.xaml.cs">
       <DependentUpon>Plan.xaml</DependentUpon>
     </Compile>
@@ -107,7 +104,7 @@
     <Compile Include="Equipment\Equipment.xaml.cs">
       <DependentUpon>Equipment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Docs\AllDocs.xaml.cs">
+    <Compile Include="Contracts\AllDocs.xaml.cs">
       <DependentUpon>AllDocs.xaml</DependentUpon>
     </Compile>
     <Compile Include="Application\AllApplications.xaml.cs">
@@ -174,10 +171,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Docs\Contract.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Docs\Plan.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -202,7 +195,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Docs\AllDocs.xaml">
+    <Page Include="Contracts\AllDocs.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

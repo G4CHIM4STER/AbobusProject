@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace Brylev.Docs
+namespace Brylev.Contracts
 {
 	/// <summary>
 	/// Логика взаимодействия для AllReports.xaml
@@ -22,6 +22,18 @@ namespace Brylev.Docs
 		public AllDocs()
 		{
 			InitializeComponent();
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			if(sender == this.ContractButton)
+			{
+				App.afterAuthorization.OpenNewWindow(this, e, typeof(Contracts.AllContracts));
+			}
+			else if(sender == this.PlanButton)
+			{
+				App.afterAuthorization.OpenNewWindow(this, e, typeof(Docs.Plan));
+			}
 		}
 	}
 }

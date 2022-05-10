@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Brylev.Docs"
         mc:Ignorable="d"
         Title="Plan" Height="450" Width="800">
-    <Grid>
-        <DataGrid x:Name="Plan_Data"></DataGrid>
-    </Grid>
+	<Grid>
+		<TextBlock x:Name="PositionTextBlock" HorizontalAlignment="Center" Margin="685,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+		<TextBlock x:Name="EmployeeNameTextBlock" HorizontalAlignment="Center" Margin="685,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+	</Grid>
 </Window>

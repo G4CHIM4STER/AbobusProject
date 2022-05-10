@@ -201,6 +201,7 @@ CREATE PROCEDURE SelectScheduleDocById
 @id_contract int
 AS
 BEGIN
+
 	SELECT 
 			E.name as 'Оборудование', 
 			E.serial_number as 'Серийный номер',
@@ -218,6 +219,7 @@ BEGIN
 			CList.id_contract = C.id_contract AND
 			C.id_contract = @id_contract AND 
 			Cl.id_client = C.id_client
+
 END;
 GO
 
@@ -232,7 +234,7 @@ BEGIN
 
 WHILE(@i < 12)
 	
-	SET @temp =	@temp +	(SELECT COUNT(*) + ','
+	SET @temp =	@temp +	(SELECT MIN(MONTH(A.date)) + '-' + COUNT(*) + ','
 
 						FROM	Applications as A
 									INNER JOIN Statuses as S
@@ -247,6 +249,8 @@ WHILE(@i < 12)
 								A.date <= DATEADD(month,@i + 1,C.time_start) AND
 								DATEADD(month,@i,C.time_start) >= @periodStart AND
 								DATEADD(month,@i + 1,C.time_start) <= @periodEnd
+
+						--GROUP BY A.date
 						)
 			
 SET @i = @i + 1

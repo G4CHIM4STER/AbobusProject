@@ -16,6 +16,8 @@ namespace Brylev.Utilities
 	{
 		public static string select = "SELECT * FROM {0}";
 		public static string insert = "INSERT INTO {0} ({1}) VALUES({2})";
+		public static string SelectScheduleDoc = "SelectScheduleDocById";
+		public static string SelectSchedulePlan = "SelectSchedulePlanById";
 		public static Window GetWindowInstance(Type T)
 		{
 			var windows = System.Windows.Application.Current.Windows;
@@ -74,7 +76,7 @@ namespace Brylev.Utilities
 
 				throw;
 			}
-			
+
 
 			//ClientsDataGrid.DataSource = dataTable;
 		}
@@ -116,21 +118,70 @@ namespace Brylev.Utilities
 
 				throw;
 			}
-			
-		}
 
-		//public static void FitDataGridToContent(DataGrid dg)
-		//{
-		//	int t = 0;
-		//	foreach (DataGridColumn column in dg.Columns)
-		//	{
-		//		//if you want to size your column as per the cell content
-		//		//column.Width = new DataGridLength(1.0, DataGridLengthUnitType.SizeToCells);
-		//		//if you want to size your column as per the column header
-		//		//column.Width = new DataGridLength(1.0, DataGridLengthUnitType.SizeToHeader);
-		//		//if you want to size your column as per both header and cell content
-		//		//column.Width = new DataGridLength(1.0, DataGridLengthUnitType.Auto);
-		//	}
-		//}
+		}
+		public static Dictionary<string, string> SelectScheduleDocById(int @idcontract)
+		{
+			using (SqlConnection connection = new SqlConnection(App.connectionParams))
+			{
+				connection.Open();
+
+				SqlCommand sqlCommand = new SqlCommand(SelectScheduleDoc, connection);
+				sqlCommand.CommandType = CommandType.StoredProcedure;
+
+				SqlParameter @id_contract = new SqlParameter("@id_contract", @idcontract);
+				sqlCommand.Parameters.Add(@id_contract);
+
+				SqlDataReader reader = sqlCommand.ExecuteReader();
+				Dictionary<string, string> result = new Dictionary<string, string>();
+
+				while (reader.Read())
+				{
+					result.Add(reader.GetName(0).ToString(), reader.GetValue(0).ToString());
+					result.Add(reader.GetName(1).ToString(), reader.GetValue(1).ToString());
+					result.Add(reader.GetName(2).ToString(), reader.GetValue(2).ToString());
+					result.Add(reader.GetName(3).ToString(), reader.GetValue(3).ToString());
+					result.Add(reader.GetName(4).ToString(), reader.GetValue(4).ToString());
+					result.Add(reader.GetName(5).ToString(), reader.GetValue(5).ToString());
+				}
+
+				return result;
+			}
+		}
+		public static Dictionary<string, string> SelectSchedulePlanById(int @idcontract, DateTime @periodstart, DateTime @periodend)
+		{
+			using (SqlConnection connection = new SqlConnection(App.connectionParams))
+			{
+				connection.Open();
+
+				SqlCommand sqlCommand = new SqlCommand(SelectSchedulePlan, connection);
+				sqlCommand.CommandType = CommandType.StoredProcedure;
+
+				SqlParameter @id_contract = new SqlParameter("@id_contract", @idcontract);
+				SqlParameter @periodStart = new SqlParameter("@periodStart", @periodstart.ToString("dd.MM.yyyy HH:mm:ss.fff"));
+				SqlParameter @periodEnd = new SqlParameter("@periodEnd", @periodend.ToString("dd.MM.yyyy HH:mm:ss.fff"));
+
+				sqlCommand.Parameters.AddRange(new SqlParameter[] { @id_contract, @periodStart, @periodEnd });
+				Dictionary<string, string> result = new Dictionary<string, string>();
+
+				SqlDataReader reader = sqlCommand.ExecuteReader();
+				string data = "";
+
+				while (reader.Read())
+				{
+					data = reader.GetValue(0).ToString();
+				}
+
+				string[] param = data.Split(',');
+
+				for (int i = 0; i < param.Length; i++)
+				{
+					string[] temp = param[i].Split('-');
+					result.Add(temp[0], temp[1]);
+				}
+
+				return result;
+			}
+		}
 	}
 }

@@ -25,9 +25,9 @@ namespace Brylev.Docs
         {
             InitializeComponent();
 
-            string table = "Clients";
+            //string table = "Clients";
 
-            Utilities.Utils.FillDataGrid(this.ClientsDataGrid, table);
+            //Utilities.Utils.FillDataGrid(this.PlanData_Grid, table);
         }
     }
 }

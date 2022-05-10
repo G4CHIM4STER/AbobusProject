@@ -20,17 +20,17 @@ namespace Brylev.Applications
 	/// </summary>
 	public partial class Application : Window
 	{
-		string subject, client, applicationType, status, room, contract, registration, elapsedTime, employee, description, equpment;
+		//string subject, client, applicationType, status, room, contract, registration, elapsedTime, employee, description, equpment;
 
-		Dictionary<string, string> InsertData;
+		//Dictionary<string, string> InsertData;
 
-		SqlConnection sqlConnection;
+		//SqlConnection sqlConnection;
 
 		public Application()
 		{
 			InitializeComponent();
 
-			sqlConnection = new SqlConnection(App.connectionParams);
+			//sqlConnection = new SqlConnection(App.connectionParams);
 		}
 
 		private void ReturnButton_Click(object sender, RoutedEventArgs e)
@@ -41,7 +41,7 @@ namespace Brylev.Applications
 		private void SaveButton_Click(object sender, RoutedEventArgs e)
 		{
 			//Dictionary<string, string> insertData = new Dictionary<string, string>();
-			Utilities.Utils.InsertDataIntoDB("Applications", this.InsertData);
+			//Utilities.Utils.InsertDataIntoDB("Applications", this.InsertData);
 
 			OpenAllRequests();
 

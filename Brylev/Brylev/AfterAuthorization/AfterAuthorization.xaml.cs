@@ -73,7 +73,7 @@ namespace Brylev.AfterAuthorization
 				}
 				else if (sender.Equals(this.ContractsButton))
 				{
-					OpenNewChildWindow(typeof(Contracts.AllContracts));
+					OpenNewChildWindow(typeof(Contracts.AllDocs));
 				}
 				else if (sender.Equals(this.EmployeesButton))
 				{
@@ -85,7 +85,7 @@ namespace Brylev.AfterAuthorization
 				}
 				else if (sender.Equals(this.ReportsButton))
 				{
-					OpenNewChildWindow(typeof(Docs.AllDocs));
+					//OpenNewChildWindow(typeof(Docs.AllDocs));
 				}
 				else if (sender.Equals(this.RequestsButton))
 				{
@@ -122,20 +122,6 @@ namespace Brylev.AfterAuthorization
 		{
 			this.ChildWindow.Children.Clear();
 		}
-
-		//public void CloseWindow(Type T)
-		//{
-		//	if(this.ChildWindow.Children.Count != 0)
-		//	{
-		//		foreach (var child in ChildWindow.Children)
-		//		{
-		//			if (child.GetType().Equals(T))
-		//			{
-		//				ChildWindow.Children.Remove(child as UIElement);
-		//			}
-		//		}
-		//	}
-		//}
 
 		/// <summary>
 		/// Обработчик открытия конкретного окна для реализации внешними объектами
