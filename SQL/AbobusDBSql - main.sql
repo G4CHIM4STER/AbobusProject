@@ -8,6 +8,9 @@ CREATE DATABASE AbobusDB;
 ALTER DATABASE AbobusDB SET COMPATIBILITY_LEVEL = 150;
 GO
 
+USE AbobusDB;
+GO
+
 CREATE TABLE AbobusDB.dbo.ApplicationTypes ( 
 	id_applicationtype   int    IDENTITY (1, 1)  NOT NULL,
 	name                 nvarchar(50)      NOT NULL,
@@ -192,4 +195,62 @@ ALTER TABLE AbobusDB.dbo.Works ADD CONSTRAINT fk_Works_Applications FOREIGN KEY 
 GO
 
 ALTER TABLE AbobusDB.dbo.Works ADD CONSTRAINT fk_Works_Employee FOREIGN KEY ( id_employee ) REFERENCES AbobusDB.dbo.Employees( id_employee );
+GO
+
+CREATE PROCEDURE SelectScheduleDocById
+@id_contract int
+AS
+BEGIN
+	SELECT 
+			E.name as 'Оборудование', 
+			E.serial_number as 'Серийный номер',
+			CList.quantity as 'Планируется',
+			C.time_start as 'Начало договора',
+			C.time_end as 'Конец договора',
+			Cl.name as 'Имя клиента'
+
+	FROM	Equipments as E, 
+			Contracts as C, 
+			ContractList as CList, 
+			Clients as Cl
+
+	WHERE	E.id_equip = CList.id_equip AND 
+			CList.id_contract = C.id_contract AND
+			C.id_contract = @id_contract AND 
+			Cl.id_client = C.id_client
+END;
+GO
+
+CREATE PROCEDURE SelectSchedulePlanById
+@periodStart date,
+@periodEnd date,
+@id_contract int,
+@i int = 0,
+@temp nvarchar(max) = ''
+AS
+BEGIN
+
+WHILE(@i < 12)
+	
+	SET @temp =	@temp +	(SELECT COUNT(*) + ','
+
+						FROM	Applications as A
+									INNER JOIN Statuses as S
+									ON S.id_status = A.id_status
+									INNER JOIN Contracts as C
+									ON A.id_contract = C.id_contract
+
+						WHERE	S.name = 'Выполнено' AND 
+								A.id_contract = @id_contract AND 
+								DATEADD(month,@i + 1,C.time_start) <= C.time_end AND				
+								A.date >= DATEADD(month,@i,C.time_start) AND
+								A.date <= DATEADD(month,@i + 1,C.time_start) AND
+								DATEADD(month,@i,C.time_start) >= @periodStart AND
+								DATEADD(month,@i + 1,C.time_start) <= @periodEnd
+						)
+			
+SET @i = @i + 1
+
+SELECT @temp
+END;
 GO
