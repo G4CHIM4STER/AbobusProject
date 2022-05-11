@@ -103,6 +103,8 @@ INSERT INTO dbo.Employees VALUES(5,5,5,'Иван Говнов','89347387658','Govno5@mail.
 
 INSERT INTO dbo.ContractList VALUES(1,1,1534)
 
+INSERT INTO dbo.ContractList VALUES(1,2,200)
+
 INSERT INTO dbo.ContractList VALUES(2,2,153454)
 
 INSERT INTO dbo.ContractList VALUES(3,3,156734)
@@ -121,15 +123,45 @@ INSERT INTO dbo.ApplicationTypes VALUES('Фотошоп','Фотошопится')
 
 INSERT INTO dbo.ApplicationTypes VALUES('Моча','Течёт')
 
-INSERT INTO dbo.Applications VALUES(1,1,1,1,'20.10.2002','Описание')
+INSERT INTO dbo.Applications VALUES(1,1,1,1,'20.10.2021','Описание')
 
-INSERT INTO dbo.Applications VALUES(2,2,2,2,'19.10.2002','Описание2')
+INSERT INTO dbo.Applications VALUES(2,2,2,2,'19.10.2021','Описание2')
 
-INSERT INTO dbo.Applications VALUES(3,3,3,3,'18.10.2002','Описание3')
+INSERT INTO dbo.Applications VALUES(3,3,3,3,'18.10.2021','Описание3')
 
-INSERT INTO dbo.Applications VALUES(4,4,4,4,'17.10.2002','Описание4')
+INSERT INTO dbo.Applications VALUES(4,4,4,4,'17.10.2021','Описание4')
 
-INSERT INTO dbo.Applications VALUES(5,5,5,5,'16.10.2002','Описание5')
+INSERT INTO dbo.Applications VALUES(5,5,5,5,'16.10.2021','Описание5')
+
+INSERT INTO dbo.Applications VALUES(1,1,1,1,'20.11.2021','Описание')
+
+INSERT INTO dbo.Applications VALUES(2,2,2,2,'19.11.2021','Описание2')
+
+INSERT INTO dbo.Applications VALUES(3,3,3,3,'18.11.2021','Описание3')
+
+INSERT INTO dbo.Applications VALUES(4,4,4,4,'17.11.2021','Описание4')
+
+INSERT INTO dbo.Applications VALUES(5,5,5,5,'16.11.2021','Описание5')
+
+INSERT INTO dbo.Applications VALUES(1,1,1,1,'20.12.2021','Описание')
+
+INSERT INTO dbo.Applications VALUES(2,2,2,2,'19.12.2021','Описание2')
+
+INSERT INTO dbo.Applications VALUES(3,3,3,3,'18.12.2021','Описание3')
+
+INSERT INTO dbo.Applications VALUES(4,4,4,4,'17.12.2021','Описание4')
+
+INSERT INTO dbo.Applications VALUES(5,5,5,5,'16.12.2021','Описание5')
+
+INSERT INTO dbo.Applications VALUES(1,1,1,1,'20.01.2022','Описание')
+
+INSERT INTO dbo.Applications VALUES(2,2,2,2,'19.01.2022','Описание2')
+
+INSERT INTO dbo.Applications VALUES(3,3,3,3,'18.01.2022','Описание3')
+
+INSERT INTO dbo.Applications VALUES(4,4,4,4,'17.01.2022','Описание4')
+
+INSERT INTO dbo.Applications VALUES(5,5,5,5,'16.01.2022','Описание5')
 
 INSERT INTO dbo.Works VALUES(1,1,1,1,500)
 

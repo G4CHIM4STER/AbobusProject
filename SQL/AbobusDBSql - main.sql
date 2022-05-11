@@ -24,7 +24,7 @@ CREATE TABLE AbobusDB.dbo.Docs (
 	id_work              int  NOT NULL,
 	name                 nvarchar(100)      NOT NULL,
 	type                 nvarchar(10)      NOT NULL,
-	binary_file              varbinary(max)      NOT NULL,
+	binary_file          varbinary(max)      NULL,
 	CONSTRAINT pk_Docs PRIMARY KEY  ( id_docs ) 
  );
 GO
@@ -197,18 +197,40 @@ GO
 ALTER TABLE AbobusDB.dbo.Works ADD CONSTRAINT fk_Works_Employee FOREIGN KEY ( id_employee ) REFERENCES AbobusDB.dbo.Employees( id_employee );
 GO
 
+DROP PROCEDURE SelectScheduleDocById;
+GO
+
 CREATE PROCEDURE SelectScheduleDocById
-@id_contract int
+(
+	@start_year date,
+	@id_contract int
+)
 AS
+CREATE TABLE #temp
+(
+	temp_equip_id int,
+	temp_contract_id int,
+	temp_equip_name nvarchar(max),
+	temp_serial_number nvarchar(max),
+	temp_equip_plan_quantity int,
+	temp_time_start date,
+	temp_time_end date,
+	temp_client_name nvarchar(max),
+	temp_equip_actual_quantity nvarchar(max)
+)
 BEGIN
 
+	INSERT INTO #temp (temp_equip_id, temp_contract_id, temp_equip_name, temp_serial_number, temp_equip_plan_quantity, temp_time_start, temp_time_end, temp_client_name, temp_equip_actual_quantity)
 	SELECT 
+			E.id_equip as 'Идентификатор оборудования',
+			C.id_contract as 'Идентификатор контракта',
 			E.name as 'Оборудование', 
 			E.serial_number as 'Серийный номер',
 			CList.quantity as 'Планируется',
 			C.time_start as 'Начало договора',
 			C.time_end as 'Конец договора',
-			Cl.name as 'Имя клиента'
+			Cl.name as 'Имя клиента',
+			''
 
 	FROM	Equipments as E, 
 			Contracts as C, 
@@ -220,41 +242,88 @@ BEGIN
 			C.id_contract = @id_contract AND 
 			Cl.id_client = C.id_client
 
+	SELECT * FROM #temp
+
+	DECLARE @equipment_id int, @contract_id int, @quantity nvarchar(max)
+	DECLARE cur CURSOR 
+	FOR 
+		SELECT #temp.temp_equip_id, #temp.temp_contract_id
+		FROM #temp
+
+	OPEN cur
+
+	FETCH NEXT FROM cur
+	INTO @equipment_id, @contract_id --, @quantity--INTO @equipment_id
+
+	WHILE @@FETCH_STATUS = 0
+	BEGIN 
+		EXEC SelectSchedulePlanById @start_year, @equipment_id, @contract_id, @quantity OUTPUT
+		
+		UPDATE #temp
+		SET #temp.temp_equip_actual_quantity = @quantity
+		WHERE #temp.temp_equip_id = @equipment_id
+
+		FETCH NEXT FROM cur INTO @equipment_id, @contract_id
+	END
+	CLOSE cur
+	DEALLOCATE cur
+
+	SELECT * FROM #temp
 END;
+
+GO
+
+DROP PROCEDURE SelectSchedulePlanById;
 GO
 
 CREATE PROCEDURE SelectSchedulePlanById
-@periodStart date,
-@periodEnd date,
+@start_year date,
+@id_equipment int,
 @id_contract int,
-@i int = 0,
-@temp nvarchar(max) = ''
+@quantity nvarchar(max) OUT
 AS
 BEGIN
+	DECLARE @buffer date, @tempDate date, @i int = 0, @result nvarchar(max) = '', @count int = 0
 
-WHILE(@i < 12)
-	
-	SET @temp =	@temp +	(SELECT MIN(MONTH(A.date)) + '-' + COUNT(*) + ','
+	SET @start_year = cast(format(@start_year, '01.01.yyyy') as Date)
 
-						FROM	Applications as A
-									INNER JOIN Statuses as S
-									ON S.id_status = A.id_status
-									INNER JOIN Contracts as C
-									ON A.id_contract = C.id_contract
+	WHILE(@i < 12)
+	BEGIN
 
-						WHERE	S.name = 'Выполнено' AND 
-								A.id_contract = @id_contract AND 
-								DATEADD(month,@i + 1,C.time_start) <= C.time_end AND				
-								A.date >= DATEADD(month,@i,C.time_start) AND
-								A.date <= DATEADD(month,@i + 1,C.time_start) AND
-								DATEADD(month,@i,C.time_start) >= @periodStart AND
-								DATEADD(month,@i + 1,C.time_start) <= @periodEnd
+		SET @buffer = @start_year
+		SET @tempDate = DATEADD(month,@i,@start_year)
+		SET @start_year = @buffer
+		SET @count = 0   +	(
+								SELECT COUNT(*)
+								FROM	Applications as A
+										INNER JOIN Statuses as S
+										ON S.id_status = A.id_status
+										INNER JOIN Contracts as C
+										ON A.id_contract = C.id_contract
+										INNER JOIN ContractList as CL
+										ON C.id_contract = CL.id_contract
+										INNER JOIN Equipments as E
+										ON CL.id_equip = E.id_equip
 
-						--GROUP BY A.date
-						)
-			
-SET @i = @i + 1
+								WHERE	S.name = 'Выполнено' AND 
+										A.id_contract = @id_contract AND
+										E.id_equip = @id_equipment AND
+										(A.date BETWEEN DATEADD(month,@i,@tempDate) AND DATEADD(month,@i + 1,@tempDate))
+							)
 
-SELECT @temp
+		IF(@i < 11)
+		BEGIN
+			SET @result  =	@result +	(SELECT CAST(@tempDate as nvarchar(10)) + ':' + CAST(@count as varchar(10)) + ',')
+		END
+		ELSE
+		BEGIN
+			SET @result  =	@result +	(SELECT CAST(@tempDate as nvarchar(10)) + ':' + CAST(@count as varchar(10)))
+		END
+
+	SET @i = @i + 1
+	END
+
+	SELECT @quantity = @result
+	RETURN SELECT @result
 END;
 GO
