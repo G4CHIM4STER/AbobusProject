@@ -1,0 +1,64 @@
+﻿<Window x:Class="Brylev.Docs.PlanDoc"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Brylev.Docs"
+        mc:Ignorable="d"
+        Title="PlanDoc"
+		  >
+	<Grid Height="auto">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition/>
+			<ColumnDefinition/>
+		</Grid.ColumnDefinitions>
+
+		<Grid.RowDefinitions>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+			<RowDefinition Height="auto"/>
+		</Grid.RowDefinitions>
+
+		<Grid Grid.Column="1" HorizontalAlignment="Right" Margin="0,0,50,0">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Grid.Row="0" Text="УТВЕРЖДАЮ" TextAlignment="Center" FontSize="15"/>
+			<TextBlock Grid.Row="1" Text="__________________"  TextAlignment="Center" FontSize="15"/>
+			<TextBlock Grid.Row="2" Text="(должность)"  TextAlignment="Center" FontSize="15"/>
+			<TextBlock Grid.Row="3" Text="__________________"  TextAlignment="Center" FontSize="20"/>
+			<TextBlock Grid.Row="4" Text="(подпись, инициалы и фамилия)"  TextAlignment="Center" FontSize="15"/>
+			<TextBlock Grid.Row="5" Text="«___»_______________20__г."  TextAlignment="Center" FontSize="15"/>
+		</Grid>
+
+		<Grid Grid.Row="1" Grid.ColumnSpan="2" Margin="25">
+			<Grid>
+				<Grid.RowDefinitions>
+					<RowDefinition/>
+					<RowDefinition/>
+				</Grid.RowDefinitions>
+
+				<TextBlock Grid.Row="0" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Text="План-график" TextAlignment="Center" FontWeight="Bold"/>
+				<TextBlock x:Name="ClientBox" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" FontSize="20" Text="{Binding}" TextAlignment="Center" FontWeight="Bold"></TextBlock>
+
+			</Grid>
+		</Grid>
+
+		<Grid Height="auto" Grid.Row="2" Grid.ColumnSpan="2" >
+			<DataGrid x:Name="PlanDataGrid" AutoGenerateColumns="True" 
+					 ItemsSource="{Binding}" ColumnWidth="*" 
+					 CanUserReorderColumns="False" CanUserDeleteRows="False" 
+					 CanUserAddRows="False" CanUserResizeColumns="False"
+					 HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+
+			</DataGrid>
+		</Grid>
+		
+	</Grid>
+</Window>

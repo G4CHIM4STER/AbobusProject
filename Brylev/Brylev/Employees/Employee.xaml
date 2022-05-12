@@ -6,7 +6,118 @@
         xmlns:local="clr-namespace:Brylev.Employees"
         mc:Ignorable="d"
         Title="Employee" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+	<Grid Background="White">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="115*"/>
+		</Grid.RowDefinitions>
+
+		<Grid>
+			<Button x:Name="ReturnButton" Content="Назад" Click="ReturnButton_Click"></Button>
+		</Grid>
+
+		<!--#region Тема заявки-->
+		<Grid Grid.Row="1" Grid.ColumnSpan="5">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Имя сотрудника" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="NameBox" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Клиент-->
+		<Grid Grid.Row="1" Grid.Column="6">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Роль" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<ComboBox x:Name="ClientBox" Grid.Row="1" IsEditable="True"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Тип заявки-->
+		<Grid Grid.Row="2" Grid.ColumnSpan="4">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Телефон" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="PhoneNumberTypeBox" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Статус заявки-->
+		<!--#endregion-->
+
+		<!--#region Помещение-->
+		<!--#endregion-->
+
+		<!--#region Договор-->
+		<Grid Grid.Row="2" Grid.Column="6">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Регион" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<ComboBox x:Name="RegionBox" Grid.Row="1" IsEditable="True"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Дата регистрации-->
+		<Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="4">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Электронная почта" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="MailBox" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Затраченное время-->
+		<!--#endregion-->
+
+		<!--#region Исполнитель-->
+		<Grid Grid.Row="3" Grid.Column="6">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Должность" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<ComboBox x:Name="RoleBox" Grid.Row="1" IsEditable="True"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Описание-->
+		<!--#endregion-->
+
+		<!--#region Оборудование-->
+		<!--#endregion-->
+
+		<Grid Grid.Column="6" Grid.Row="5">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Button x:Name="SaveButton" Grid.Row="1" Content="Сохранить" Click="SaveButton_Click"/>
+		</Grid>
+
+	</Grid>
 </Window>

@@ -29,6 +29,12 @@ namespace Brylev.Clients
 			string table = "Clients";
 
 			Utilities.Utils.FillDataGrid(this.ClientsDataGrid, table);
+			this.InsertButton.Click += InsertButton_Click;
+		}
+
+		private void InsertButton_Click(object sender, RoutedEventArgs e)
+		{
+			App.afterAuthorization.OpenNewWindow(this, e, typeof(Client));
 		}
 	}
 }

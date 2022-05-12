@@ -23,7 +23,6 @@ namespace Brylev.Applications
 		{
 			InitializeComponent();
 
-			//string command = String.Format(Utilities.Utils.select, "Application");
 			string table = "Applications";
 
 			Utilities.Utils.FillDataGrid(this.ApplicationsDataGrid, table);

@@ -6,7 +6,110 @@
         xmlns:local="clr-namespace:Brylev.Equipment"
         mc:Ignorable="d"
         Title="Equipment" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+	<Grid Background="White">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="115*"/>
+		</Grid.RowDefinitions>
+
+		<Grid>
+			<Button x:Name="ReturnButton" Content="Назад" Click="ReturnButton_Click"></Button>
+		</Grid>
+
+		<!--#region Тема заявки-->
+		<Grid Grid.Row="1" Grid.ColumnSpan="5">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Название оборудования" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="NameBox" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Клиент-->
+		<!--#endregion-->
+
+		<!--#region Тип заявки-->
+		<Grid Grid.Row="2" Grid.ColumnSpan="3">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Тип" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="TypeBox" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Статус заявки-->
+		<!--#endregion-->
+
+		<!--#region Помещение-->
+		<!--#endregion-->
+
+		<!--#region Договор-->
+		<!--#endregion-->
+
+		<!--#region Дата регистрации-->
+		<Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="3">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Серийный номер" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="SerialNumberBox" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Затраченное время-->
+		<!--#endregion-->
+
+		<!--#region Исполнитель-->
+		<!--#endregion-->
+
+		<!--#region Описание-->
+		<Grid Grid.Row="4" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="5">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition Height="5*"/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Описание" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="DescriptionBox" Grid.Row="1" TextWrapping="Wrap"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Оборудование-->
+		<!--#endregion-->
+
+		<Grid Grid.Column="6" Grid.Row="5">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Button x:Name="SaveButton" Grid.Row="1" Content="Сохранить" Click="SaveButton_Click"/>
+		</Grid>
+		<Grid Grid.Row="1" Grid.Column="6">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Цена (рубли)" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="CostBox" Grid.Row="1"/>
+		</Grid>
+
+	</Grid>
 </Window>

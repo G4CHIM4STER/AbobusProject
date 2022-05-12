@@ -27,7 +27,13 @@ namespace Brylev.Contracts
 			string table = "Contracts";
 
 			Utilities.Utils.FillDataGrid(this.ContractsDataGrid, table);
+			this.InsertButton.Click += InsertButton_Click;
 
+		}
+
+		private void InsertButton_Click(object sender, RoutedEventArgs e)
+		{
+			App.afterAuthorization.OpenNewWindow(this, e, typeof(Contract));
 		}
 	}
 }

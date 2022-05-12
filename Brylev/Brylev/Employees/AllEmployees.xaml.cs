@@ -28,6 +28,12 @@ namespace Brylev.Employees
 			string table = "Employees";
 
 			Utilities.Utils.FillDataGrid(this.EmployeesDataGrid, table);
+			this.InsertButton.Click += InsertButton_Click;
+
+		}
+		private void InsertButton_Click(object sender, RoutedEventArgs e)
+		{
+			App.afterAuthorization.OpenNewWindow(this, e, typeof(Employee));
 		}
 	}
 }

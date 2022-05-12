@@ -92,6 +92,9 @@
     <Compile Include="Docs\Plan.xaml.cs">
       <DependentUpon>Plan.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Docs\PlanDoc.xaml.cs">
+      <DependentUpon>PlanDoc.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Employees\AllEmployees.xaml.cs">
       <DependentUpon>AllEmployees.xaml</DependentUpon>
     </Compile>
@@ -172,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Docs\Plan.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Docs\PlanDoc.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

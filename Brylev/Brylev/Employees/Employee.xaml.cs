@@ -22,6 +22,24 @@ namespace Brylev.Employees
 		public Employee()
 		{
 			InitializeComponent();
+
+			this.ClientBox.ItemsSource = Utilities.Utils.DataBase.Clients.Values;
+			this.RegionBox.ItemsSource = Utilities.Utils.DataBase.Regions.Values;
+			this.RoleBox.ItemsSource = Utilities.Utils.DataBase.Roles.Values;
+		}
+
+		private void ReturnButton_Click(object sender, RoutedEventArgs e)
+		{
+			App.afterAuthorization.OpenNewWindow(this, null, typeof(AllEmployees));
+		}
+
+		private void SaveButton_Click(object sender, RoutedEventArgs e)
+		{
+
+
+			ReturnButton_Click(this, null);
+
+			//TO DO
 		}
 	}
 }

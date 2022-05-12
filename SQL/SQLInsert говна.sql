@@ -173,12 +173,12 @@ INSERT INTO dbo.Works VALUES(4,4,4,4,400)
 
 INSERT INTO dbo.Works VALUES(5,5,5,5,500)
 
-INSERT INTO dbo.Docs (Docs.id_work, Docs.name, Docs.type) VALUES(1,'Договор1','Договор')
+INSERT INTO dbo.Docs VALUES(1,'Договор1','Договор')
 
-INSERT INTO dbo.Docs (Docs.id_work, Docs.name, Docs.type) VALUES(2,'Договор2','Договор')
+INSERT INTO dbo.Docs VALUES(2,'Договор2','Договор')
 
-INSERT INTO dbo.Docs (Docs.id_work, Docs.name, Docs.type) VALUES(3,'Договор3','Договор')
+INSERT INTO dbo.Docs VALUES(3,'Договор3','Договор')
 
-INSERT INTO dbo.Docs (Docs.id_work, Docs.name, Docs.type) VALUES(4,'Договор4','Договор')
+INSERT INTO dbo.Docs VALUES(4,'Договор4','Договор')
 
-INSERT INTO dbo.Docs (Docs.id_work, Docs.name, Docs.type) VALUES(5,'Договор5','Договор')
+INSERT INTO dbo.Docs VALUES(5,'Договор5','Договор')

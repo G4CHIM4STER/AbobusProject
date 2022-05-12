@@ -18,16 +18,13 @@ namespace Brylev
 		
 		public static string database = @".\SQLEXPRESS";
 		public static string connectionParams = $"Persist Security Info = False; Integrated Security = true; Initial Catalog = AbobusDB; Server = {database}";
-		
+		public Utilities.Utils.DataBase DataBase;
+
 		public App()
 		{
-
+			DataBase = new Utilities.Utils.DataBase();
+			DataBase.GetMatchingData();
 		}
 
-		public class DataBase
-		{
-			public Dictionary<int, string> Application;
-
-		}
 	}
 }

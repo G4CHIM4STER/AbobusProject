@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="Plan" Height="450" Width="800">
 	<Grid>
-		<TextBlock x:Name="PositionTextBlock" HorizontalAlignment="Center" Margin="685,33,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
-		<TextBlock x:Name="EmployeeNameTextBlock" HorizontalAlignment="Center" Margin="685,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+		<DatePicker x:Name="YearDatePicker" HorizontalAlignment="Left" Margin="80,17,0,0" VerticalAlignment="Top"/>
+		<ComboBox x:Name="ContractComboBox" HorizontalAlignment="Left" Margin="255,19,0,0" VerticalAlignment="Top" Width="120" IsEditable="True" Text="Номер договора"/>
+		<Button HorizontalAlignment="Left" Margin="77,89,0,0" VerticalAlignment="Top" Height="50" Width="105" RenderTransformOrigin="-0.048,-0.499" Click="Button_Click">
+			<TextBlock Text="Сформировать документ" TextWrapping="Wrap" TextAlignment="Center"/>
+		</Button>
 	</Grid>
 </Window>

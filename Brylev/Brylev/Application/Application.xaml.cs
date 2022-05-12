@@ -20,41 +20,31 @@ namespace Brylev.Applications
 	/// </summary>
 	public partial class Application : Window
 	{
-		//string subject, client, applicationType, status, room, contract, registration, elapsedTime, employee, description, equpment;
-
-		//Dictionary<string, string> InsertData;
-
-		//SqlConnection sqlConnection;
 
 		public Application()
 		{
 			InitializeComponent();
 
-			//sqlConnection = new SqlConnection(App.connectionParams);
+			this.ApplicationTypeBox.ItemsSource = Utilities.Utils.DataBase.ApplicationTypes.Values;
+			this.ClientBox.ItemsSource = Utilities.Utils.DataBase.Clients.Values;
+			this.ContractBox.ItemsSource = Utilities.Utils.DataBase.Contracts.Values;
+			this.EmployeeBox.ItemsSource = Utilities.Utils.DataBase.Employees.Values;
+			this.RoomBox.ItemsSource = Utilities.Utils.DataBase.Rooms.Values;
+			this.StatusBox.ItemsSource = Utilities.Utils.DataBase.Statuses.Values;
+			this.EquipmentBox.ItemsSource = Utilities.Utils.DataBase.Equipments.Values;
 		}
 
 		private void ReturnButton_Click(object sender, RoutedEventArgs e)
 		{
-			OpenAllRequests();
+			App.afterAuthorization.OpenNewWindow(this, null, typeof(Applications.AllApplications));
 		}
 
 		private void SaveButton_Click(object sender, RoutedEventArgs e)
 		{
-			//Dictionary<string, string> insertData = new Dictionary<string, string>();
-			//Utilities.Utils.InsertDataIntoDB("Applications", this.InsertData);
 
-			OpenAllRequests();
 
-			//TO DO
-		}
+			ReturnButton_Click(this, null);
 
-		private void OpenAllRequests()
-		{
-			App.afterAuthorization.OpenNewWindow(this, null, typeof(Applications.AllApplications));
-		}
-
-		private void OnTextInput(object sender, TextCompositionEventArgs e)
-		{
 			//TO DO
 		}
 	}

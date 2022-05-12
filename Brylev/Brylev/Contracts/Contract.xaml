@@ -6,7 +6,102 @@
         xmlns:local="clr-namespace:Brylev.Contracts"
         mc:Ignorable="d"
         Title="Contract" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+	<Grid Background="White">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="1*"/>
+			<ColumnDefinition Width="2*"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="30*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="50*"/>
+			<RowDefinition Height="115*"/>
+		</Grid.RowDefinitions>
+
+		<Grid>
+			<Button x:Name="ReturnButton" Content="Назад" Click="ReturnButton_Click"></Button>
+		</Grid>
+
+		<!--#region Тема заявки-->
+		<Grid Grid.Row="1" Grid.ColumnSpan="5">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Название договора" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<TextBox x:Name="ContractNameBox" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Клиент-->
+		<Grid Grid.Row="1" Grid.Column="6">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Клиент" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<ComboBox x:Name="ClientBox" Grid.Row="1" IsEditable="True"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Тип заявки-->
+		<Grid Grid.Row="2" Grid.ColumnSpan="2">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Дата начала" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<DatePicker x:Name="StartDatePicker" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Статус заявки-->
+		<!--#endregion-->
+
+		<!--#region Помещение-->
+		<!--#endregion-->
+
+		<!--#region Договор-->
+		<!--#endregion-->
+
+		<!--#region Дата регистрации-->
+		<Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<TextBlock Text="Дата окончания" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+			<DatePicker x:Name="EndDatePicker" Grid.Row="1"/>
+		</Grid>
+		<!--#endregion-->
+
+		<!--#region Затраченное время-->
+		<!--#endregion-->
+
+		<!--#region Исполнитель-->
+		<!--#endregion-->
+
+		<!--#region Описание-->
+		<!--#endregion-->
+
+		<!--#region Оборудование-->
+		<!--#endregion-->
+
+		<Grid Grid.Column="6" Grid.Row="5">
+			<Grid.RowDefinitions>
+				<RowDefinition/>
+				<RowDefinition/>
+				<RowDefinition/>
+			</Grid.RowDefinitions>
+			<Button x:Name="SaveButton" Grid.Row="1" Content="Сохранить" Click="SaveButton_Click"/>
+		</Grid>
+
+	</Grid>
 </Window>

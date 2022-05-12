@@ -28,6 +28,12 @@ namespace Brylev.Equipment
 			string table = "Equipments";
 
 			Utilities.Utils.FillDataGrid(this.EquipmentsDataGrid, table);
+			this.InsertButton.Click += InsertButton_Click;
+
+		}
+		private void InsertButton_Click(object sender, RoutedEventArgs e)
+		{
+			App.afterAuthorization.OpenNewWindow(this, e, typeof(Equipment));
 		}
 	}
 }

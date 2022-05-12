@@ -22,6 +22,22 @@ namespace Brylev.Contracts
 		public Contract()
 		{
 			InitializeComponent();
+
+			this.ClientBox.ItemsSource = Utilities.Utils.DataBase.Clients.Values;
+		}
+
+		private void ReturnButton_Click(object sender, RoutedEventArgs e)
+		{
+			App.afterAuthorization.OpenNewWindow(this, null, typeof(AllContracts));
+		}
+
+		private void SaveButton_Click(object sender, RoutedEventArgs e)
+		{
+
+
+			ReturnButton_Click(this, null);
+
+			//TO DO
 		}
 	}
 }

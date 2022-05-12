@@ -27,7 +27,11 @@
 		</Grid>
 
 		<Grid Grid.Row="1" Grid.ColumnSpan="5">
-			<DataGrid x:Name="EquipmentsDataGrid" BorderBrush="White" HorizontalAlignment="Left"/>
+			<DataGrid x:Name="EquipmentsDataGrid" BorderBrush="White"
+						 CanUserReorderColumns="False" ColumnWidth="*"
+						 ItemsSource="{Binding Source}" Width="Auto" Height="Auto" 
+						 HorizontalAlignment="Stretch" VerticalAlignment="Top"
+						 CanUserDeleteRows="False" CanUserAddRows="False"/>
 		</Grid>
 	</Grid>
 </Window>

@@ -242,7 +242,7 @@ BEGIN
 			C.id_contract = @id_contract AND 
 			Cl.id_client = C.id_client
 
-	SELECT * FROM #temp
+	--SELECT * FROM #temp
 
 	DECLARE @equipment_id int, @contract_id int, @quantity nvarchar(max)
 	DECLARE cur CURSOR 
@@ -325,5 +325,101 @@ BEGIN
 
 	SELECT @quantity = @result
 	RETURN SELECT @result
+END;
+GO
+
+DROP PROCEDURE SelectMatchingIdName;
+GO
+
+CREATE PROCEDURE SelectMatchingIdName
+@table nvarchar(max)
+AS
+BEGIN
+	IF(@table = 'Applications')
+	BEGIN
+		SELECT A.id_application, 'Заявка от клиента ' + C.name + ' по договору №' + CAST(Co.id_contract as nvarchar(max))
+		FROM Applications as A
+			INNER JOIN Clients as C
+				INNER JOIN Contracts as Co
+				ON Co.id_client = C.id_client
+			ON A.id_contract = CO.id_contract
+	END
+	ELSE IF(@table = 'ApplicationTypes')
+	BEGIN
+		SELECT A.id_applicationtype, A.name
+		FROM ApplicationTypes as A
+	END
+	ELSE IF(@table = 'Clients')
+	BEGIN
+		SELECT C.id_client, C.name
+		FROM Clients as C
+	END
+	ELSE IF(@table = 'ContractList')
+	BEGIN
+		SELECT C.id_contractlist, C.id_contract
+		FROM ContractList as C, Contracts as Co
+		WHERE C.id_contract = Co.id_contract
+	END
+	ELSE IF(@table = 'Contracts')
+	BEGIN
+		SELECT C.id_contract, Cl.name
+		FROM Contracts as C, Clients as Cl
+		WHERE C.id_client = Cl.id_client
+	END
+	ELSE IF(@table = 'Docs')
+	BEGIN
+		SELECT D.id_docs, W.id_work
+		FROM Docs as D, Works as W
+		WHERE D.id_work = W.id_work
+	END
+	ELSE IF(@table = 'Employees')
+	BEGIN
+		SELECT E.id_employee, E.name + ' ' + E.ph_number + ' ' + E.mail
+		FROM Employees as E
+	END
+	ELSE IF(@table = 'Equipments')
+	BEGIN
+		SELECT E.id_equip, E.name + ' ' + E.serial_number
+		FROM Equipments as E
+	END
+	ELSE IF(@table = 'Positions')
+	BEGIN
+		SELECT P.id_position, P.name
+		FROM Positions as P
+	END
+	ELSE IF(@table = 'Regions')
+	BEGIN
+		SELECT R.id_region, R.name
+		FROM Regions as R
+	END
+	ELSE IF(@table = 'Roles')
+	BEGIN
+		SELECT R.id_role, R.name
+		FROM Roles as R
+	END
+	ELSE IF(@table = 'Rooms')
+	BEGIN
+		SELECT R.id_room, R.id_room
+		FROM Rooms as R
+	END
+	ELSE IF(@table = 'Services')
+	BEGIN
+		SELECT S.id_services, S.name
+		FROM Services as S
+	END
+	ELSE IF(@table = 'Statuses')
+	BEGIN
+		SELECT S.id_status, S.name
+		FROM Statuses as S
+	END
+	ELSE IF(@table = 'Works')
+	BEGIN
+		SELECT W.id_work, 'Работа сотрудника ' + E.name + ' по заявке №' + CAST(A.id_application as nvarchar(max))
+		FROM Works as W
+			INNER JOIN Employees as E
+			ON W.id_employee = E.id_employee
+			INNER JOIN Applications as A
+			ON A.id_application = W.id_application
+	END
 END;
 GO

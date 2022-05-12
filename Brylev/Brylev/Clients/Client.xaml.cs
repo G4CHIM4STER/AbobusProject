@@ -23,5 +23,19 @@ namespace Brylev.Clients
 		{
 			InitializeComponent();
 		}
+
+		private void ReturnButton_Click(object sender, RoutedEventArgs e)
+		{
+			App.afterAuthorization.OpenNewWindow(this, null, typeof(Clients.AllClients));
+		}
+
+		private void SaveButton_Click(object sender, RoutedEventArgs e)
+		{
+
+
+			ReturnButton_Click(this, null);
+
+			//TO DO
+		}
 	}
 }

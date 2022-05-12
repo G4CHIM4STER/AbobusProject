@@ -149,5 +149,7 @@ namespace Brylev.AfterAuthorization
 			Utilities.Utils.HighlightButton(_button);
 			LastPressedButton = _button;
 		}
+
+
 	}
 }
